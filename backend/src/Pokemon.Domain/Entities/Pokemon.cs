@@ -9,9 +9,8 @@ public class Pokemon: Entity
     public string Name { get; set; } = null!;
     public string ImageUrl { get; set; } = null!;
     public string Description { get; set; } = null!;
-
     public PokemonTipo PokemonTipo { get; set; } = null!;
-
+    
     public override bool Validar(out ValidationResult validationResult)
     {
         validationResult = new PokemonValidator().Validate(this);

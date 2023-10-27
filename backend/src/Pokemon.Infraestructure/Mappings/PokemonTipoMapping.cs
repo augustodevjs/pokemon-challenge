@@ -24,7 +24,7 @@ public class PokemonTipoMapping : IEntityTypeConfiguration<PokemonTipo>
         builder
             .HasMany(p => p.Pokemons)
             .WithOne(p => p.PokemonTipo)
-            .HasForeignKey(p => p.PokemonTipo)
+            .HasForeignKey(p => p.PokemonTypeId)
             .OnDelete(DeleteBehavior.Restrict);
     }
 }
