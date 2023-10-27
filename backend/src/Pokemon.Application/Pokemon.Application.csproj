@@ -6,4 +6,12 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="AutoMapper\" />
+    <Folder Include="Configuration\" />
+    <Folder Include="Contracts\" />
+    <Folder Include="Notifications\" />
+    <Folder Include="Services\" />
+  </ItemGroup>
+
 </Project>
