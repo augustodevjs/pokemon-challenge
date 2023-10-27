@@ -1,13 +1,16 @@
 {
   "version": 2,
-  "dgSpecHash": "1cX3ewwm+pC58T27rQoeCONEEZLXFxbCRkBgu6uq0l0WEtvMEy6FSaHxgKI6lz/z/r8WUKwfOt8+jFL+zqR90w==",
+  "dgSpecHash": "zqhHoMmG0WqumCOnODcBxkNpKafaZWCrgNaZMcxvI+/rsZE9idy1foYHw4yZhK8UonH/5hSlUFCMa2Dnm87q/Q==",
   "success": true,
   "projectFilePath": "C:\\Users\\joaoa\\source\\repos\\undefined\\backend\\src\\Pokemon.API\\Pokemon.API.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\joaoa\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
+    "C:\\Users\\joaoa\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.1\\automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",
     "C:\\Users\\joaoa\\.nuget\\packages\\fluentvalidation\\11.7.1\\fluentvalidation.11.7.1.nupkg.sha512",
     "C:\\Users\\joaoa\\.nuget\\packages\\fluentvalidation.dependencyinjectionextensions\\11.7.1\\fluentvalidation.dependencyinjectionextensions.11.7.1.nupkg.sha512",
     "C:\\Users\\joaoa\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\joaoa\\.nuget\\packages\\microsoft.aspnetcore.openapi\\7.0.10\\microsoft.aspnetcore.openapi.7.0.10.nupkg.sha512",
+    "C:\\Users\\joaoa\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
     "C:\\Users\\joaoa\\.nuget\\packages\\microsoft.entityframeworkcore\\7.0.10\\microsoft.entityframeworkcore.7.0.10.nupkg.sha512",
     "C:\\Users\\joaoa\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\7.0.10\\microsoft.entityframeworkcore.abstractions.7.0.10.nupkg.sha512",
     "C:\\Users\\joaoa\\.nuget\\packages\\microsoft.entityframeworkcore.analyzers\\7.0.10\\microsoft.entityframeworkcore.analyzers.7.0.10.nupkg.sha512",

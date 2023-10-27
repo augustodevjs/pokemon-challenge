@@ -7,11 +7,17 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="AutoMapper\" />
-    <Folder Include="Configuration\" />
     <Folder Include="Contracts\" />
-    <Folder Include="Notifications\" />
     <Folder Include="Services\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Pokemon.Infraestructure/Pokemon.Infraestructure.csproj" />
   </ItemGroup>
 
 </Project>
