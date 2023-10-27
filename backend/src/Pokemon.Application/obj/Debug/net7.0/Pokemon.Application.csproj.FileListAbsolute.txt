@@ -1,0 +1,17 @@
+C:\Users\joaoa\source\repos\undefined\backend\src\Pokemon.Application\bin\Debug\net7.0\Pokemon.Application.deps.json
+C:\Users\joaoa\source\repos\undefined\backend\src\Pokemon.Application\bin\Debug\net7.0\Pokemon.Application.dll
+C:\Users\joaoa\source\repos\undefined\backend\src\Pokemon.Application\bin\Debug\net7.0\Pokemon.Application.pdb
+C:\Users\joaoa\source\repos\undefined\backend\src\Pokemon.Application\bin\Debug\net7.0\Pokemon.Domain.dll
+C:\Users\joaoa\source\repos\undefined\backend\src\Pokemon.Application\bin\Debug\net7.0\Pokemon.Infraestructure.dll
+C:\Users\joaoa\source\repos\undefined\backend\src\Pokemon.Application\bin\Debug\net7.0\Pokemon.Infraestructure.pdb
+C:\Users\joaoa\source\repos\undefined\backend\src\Pokemon.Application\bin\Debug\net7.0\Pokemon.Domain.pdb
+C:\Users\joaoa\source\repos\undefined\backend\src\Pokemon.Application\obj\Debug\net7.0\Pokemon.Application.csproj.AssemblyReference.cache
+C:\Users\joaoa\source\repos\undefined\backend\src\Pokemon.Application\obj\Debug\net7.0\Pokemon.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\joaoa\source\repos\undefined\backend\src\Pokemon.Application\obj\Debug\net7.0\Pokemon.Application.AssemblyInfoInputs.cache
+C:\Users\joaoa\source\repos\undefined\backend\src\Pokemon.Application\obj\Debug\net7.0\Pokemon.Application.AssemblyInfo.cs
+C:\Users\joaoa\source\repos\undefined\backend\src\Pokemon.Application\obj\Debug\net7.0\Pokemon.Application.csproj.CoreCompileInputs.cache
+C:\Users\joaoa\source\repos\undefined\backend\src\Pokemon.Application\obj\Debug\net7.0\Pokemon.Application.csproj.CopyComplete
+C:\Users\joaoa\source\repos\undefined\backend\src\Pokemon.Application\obj\Debug\net7.0\Pokemon.Application.dll
+C:\Users\joaoa\source\repos\undefined\backend\src\Pokemon.Application\obj\Debug\net7.0\refint\Pokemon.Application.dll
+C:\Users\joaoa\source\repos\undefined\backend\src\Pokemon.Application\obj\Debug\net7.0\Pokemon.Application.pdb
+C:\Users\joaoa\source\repos\undefined\backend\src\Pokemon.Application\obj\Debug\net7.0\ref\Pokemon.Application.dll
