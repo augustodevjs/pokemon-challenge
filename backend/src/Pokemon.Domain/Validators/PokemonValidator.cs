@@ -6,21 +6,21 @@ namespace Pokemon.Domain.Validators
     {
         public PokemonValidator()
         {
-            RuleFor(pokemon => pokemon.ImageUrl)
+            RuleFor(pokemon => pokemon.ImagemUrl)
                 .NotEmpty()
                 .WithMessage("A URL da imagem é obrigatória.");
 
-            RuleFor(pokemon => pokemon.PokemonTypeId)
+            RuleFor(pokemon => pokemon.PokemonTipoId)
                 .NotNull()
                 .WithMessage("O tipo do Pokemon é obrigatório.");
 
-            RuleFor(pokemon => pokemon.Name)
+            RuleFor(pokemon => pokemon.Nome)
                 .NotEmpty()
                 .WithMessage("O nome é obrigatório.")
                 .MaximumLength(50)
                 .WithMessage("O nome deve ter menos de 50 caracteres.");
 
-            RuleFor(pokemon => pokemon.Description)
+            RuleFor(pokemon => pokemon.Descricao)
                 .NotEmpty()
                 .WithMessage("A descrição é obrigatória.")
                 .MaximumLength(150)

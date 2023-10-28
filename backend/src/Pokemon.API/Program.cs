@@ -1,3 +1,4 @@
+using Pokemon.API.Configuration;
 using Pokemon.Application;
 using Pokemon.Infraestructure;
 
@@ -19,7 +20,7 @@ builder.Services.AddCors(options =>
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+builder.Services.AddSwagger();
 
 var app = builder.Build();
 

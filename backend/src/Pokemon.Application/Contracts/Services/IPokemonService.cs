@@ -7,7 +7,7 @@ public interface IPokemonService
 {
     Task<List<PokemonViewModel>> GetAll();
     Task<PokemonViewModel?> GetById(int id);
-    Task<PokemonViewModel?> Create(AddPokemonInputModel inputModel);
-    Task<PokemonViewModel?> Update(int id, UpdatePokemonInputModel inputModel);
+    Task<AddPokemonViewModel?> Create(AddPokemonInputModel inputModel);
+    Task<UpdatePokemonViewModel?> Update(int id, UpdatePokemonInputModel inputModel);
     Task Delete(int id);
 }

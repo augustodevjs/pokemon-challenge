@@ -1,5 +1,5 @@
-﻿using Microsoft.Extensions.DependencyInjection;
-using Pokemon.Application.Configuration;
+﻿using Pokemon.Application.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace Pokemon.Application;
 

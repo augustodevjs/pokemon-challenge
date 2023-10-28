@@ -5,10 +5,10 @@ namespace Pokemon.Domain.Entities;
 
 public class Pokemon: Entity
 {
-    public int PokemonTypeId { get; set; }
-    public string Name { get; set; } = null!;
-    public string ImageUrl { get; set; } = null!;
-    public string Description { get; set; } = null!;
+    public int PokemonTipoId { get; set; }
+    public string Nome { get; set; } = null!;
+    public string ImagemUrl { get; set; } = null!;
+    public string Descricao { get; set; } = null!;
     public PokemonTipo PokemonTipo { get; set; } = null!;
     
     public override bool Validar(out ValidationResult validationResult)

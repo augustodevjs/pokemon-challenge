@@ -29,19 +29,19 @@ namespace Pokemon.Infraestructure.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("DATETIME");
 
-                    b.Property<string>("Description")
+                    b.Property<string>("Descricao")
                         .IsRequired()
                         .HasColumnType("VARCHAR(150)");
 
-                    b.Property<string>("ImageUrl")
+                    b.Property<string>("ImagemUrl")
                         .IsRequired()
                         .HasColumnType("longtext");
 
-                    b.Property<string>("Name")
+                    b.Property<string>("Nome")
                         .IsRequired()
                         .HasColumnType("VARCHAR(50)");
 
-                    b.Property<int>("PokemonTypeId")
+                    b.Property<int>("PokemonTipoId")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("UpdatedAt")
@@ -50,7 +50,7 @@ namespace Pokemon.Infraestructure.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("PokemonTypeId");
+                    b.HasIndex("PokemonTipoId");
 
                     b.ToTable("Pokemons");
                 });
@@ -82,7 +82,7 @@ namespace Pokemon.Infraestructure.Migrations
                 {
                     b.HasOne("Pokemon.Domain.Entities.PokemonTipo", "PokemonTipo")
                         .WithMany("Pokemons")
-                        .HasForeignKey("PokemonTypeId")
+                        .HasForeignKey("PokemonTipoId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
