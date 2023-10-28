@@ -1,11 +1,11 @@
-import { PokemonTipo } from ".";
+import { PokemonTipoViewModel } from ".";
 
-export interface Pokemon {
+export interface PokemonViewModel {
   id: number;
   nome: string;
   imagemUrl: string;
   descricao: string;
-  pokemonTipo: PokemonTipo;
+  pokemonTipo: PokemonTipoViewModel;
 }
 
 // Add Pokemon
