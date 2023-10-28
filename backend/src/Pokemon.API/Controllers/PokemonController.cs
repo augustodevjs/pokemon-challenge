@@ -24,6 +24,16 @@ public class PokemonController : MainController
     {
         return await _pokemonService.GetAll();
     }
+    
+    [HttpGet("pokemon-tipo/{id}")]
+    [SwaggerOperation(Summary = "Get all Pokemons by Pokemon Type")]
+    [ProducesResponseType(typeof(List<PokemonViewModel>), StatusCodes.Status200OK)]
+    [ProducesResponseType(typeof(NotFoundResult), StatusCodes.Status404NotFound)]
+    public async Task<IActionResult> GetPokemonsByPokemonType(int id)
+    {
+        var getPokemon = await _pokemonService.GetAllByPokemonTipo(id);
+        return OkResponse(getPokemon);
+    }
 
     [HttpGet("{id}")]
     [SwaggerOperation(Summary = "Get a pokemon")]

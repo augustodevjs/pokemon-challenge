@@ -24,6 +24,12 @@ export const Container = styled.div`
       color: rgba(255, 255, 255, 0.7);
     }
 
+    .type {
+      font-size: .875rem;
+      color: rgba(255, 255, 255, 0.7);
+      margin-top: 0.75rem;
+    }
+
     .actions {
       display: flex;
       gap: 0.5rem;

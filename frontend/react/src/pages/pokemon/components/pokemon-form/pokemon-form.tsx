@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useState } from 'react';
-import { TextInput, FormPokemonInputModel, TextAreaInput, Select, SelectOption, PokemonTipoViewModel, PokemonTipoService, Alert } from '../../../../shared';
 import { Controller, SubmitHandler, useFormContext } from 'react-hook-form';
+import { TextInput, FormPokemonInputModel, TextAreaInput, Select, SelectOption, PokemonTipoViewModel, PokemonTipoService, Alert } from '../../../../shared';
 
 import * as S from './pokemon-form.styles'
 
@@ -78,10 +78,10 @@ export const PokemonForm: React.FC<Props> = ({ onSubmit, id }) => {
             <label>Tipo do Pokemon</label>
             <Select
               isClearable
+              defaultValue={null}
               options={pokemonClients}
               value={pokemonClients.find((el) => el.value === value)}
               onChange={(option: SelectOption | null) => {
-                console.log(option)
                 if (option === null) {
                   onChange(null);
                   return;

@@ -24,6 +24,18 @@ public class PokemonService : BaseService, IPokemonService
         return Mapper.Map<List<PokemonViewModel>>(getAllPokemons);
     }
 
+    public async Task<List<PokemonViewModel>?> GetAllByPokemonTipo(int id)
+    {
+        if (!Enum.IsDefined(typeof(EPokemonTipo), id))
+        {
+            Notificator.HandleNotFoundResource();
+            return null;
+        }
+
+        var pokemonsByType = await _pokemonRepository.getPokemonsByPokemonTipo(id);
+        return Mapper.Map<List<PokemonViewModel>>(pokemonsByType);
+    }
+
     public async Task<PokemonViewModel?> GetById(int id)
     {
         var getPokemon = await _pokemonRepository.GetById(id);

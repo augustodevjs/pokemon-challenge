@@ -2,5 +2,5 @@
 
 public interface IPokemonRepository : IRepository<Entities.Pokemon>
 {
-    
+    Task<List<Entities.Pokemon>> getPokemonsByPokemonTipo(int? id);
 }

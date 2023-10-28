@@ -15,19 +15,6 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   isLoading?: boolean;
 }
 
-export type CardProps = {
-  stateTask: string;
-  titleTask: string;
-  description: string;
-  dateTime: string;
-};
-
-export interface IconButtonProps {
-  variant: 'edit' | 'remove';
-  icon: ComponentType;
-  onClick: () => void;
-}
-
 export interface PageHeaderProps {
   title: string;
   description: string;
@@ -71,13 +58,14 @@ export type SelectOption = {
 }
 
 export type SelectProps = ReactSelectProps<SelectOption | any> & {
-  placeholder: string;
+  placeholder?: string;
 }
 
 export type CardPokemonProps = {
   imageUrl: string;
   nome: string;
   description: string
+  type: string;
   onDelete: () => void
   onEdit: () => void
 }

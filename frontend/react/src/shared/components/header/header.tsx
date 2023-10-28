@@ -1,11 +1,17 @@
 import * as S from './header.styles';
+import PokemonSvg from '../../assets/pokemon.svg'
+import { Button } from '..';
 
-export const Header = () => {
+type HeaderProps = {
+  onAdd: () => void
+}
 
+export const Header: React.FC<HeaderProps> = ({ onAdd }) => {
   return (
     <S.Container>
       <div className='main'>
-        <h1>Pokemon</h1>
+        <img src={PokemonSvg} alt="Pokemon" />
+        <Button onClick={onAdd}>Novo Pokemon</Button>
       </div>
     </S.Container>
   );

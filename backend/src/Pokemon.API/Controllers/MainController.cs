@@ -1,8 +1,8 @@
-﻿using Pokemon.API.Responses;
-using FluentValidation.Results;
+﻿using FluentValidation.Results;
 using Microsoft.AspNetCore.Mvc;
-using Pokemon.Application.Notifications;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
+using Pokemon.API.Responses;
+using Pokemon.Application.Notifications;
 
 namespace Pokemon.API.Controllers;
 

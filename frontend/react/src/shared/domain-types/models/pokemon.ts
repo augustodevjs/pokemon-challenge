@@ -48,3 +48,18 @@ export interface FormPokemonInputModel {
   imagemUrl: string;
   descricao: string;
 }
+
+export interface FormPokemonAddInputModel {
+  pokemonTipo: SelectOption;
+  nome: string;
+  imagemUrl: string;
+  descricao: string;
+}
+
+export interface FormPokemonUpdateInputModel {
+  id: number;
+  pokemonTipo: SelectOption;
+  nome: string;
+  imagemUrl: string;
+  descricao: string;
+}

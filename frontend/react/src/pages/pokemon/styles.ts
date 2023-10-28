@@ -6,17 +6,28 @@ export const Container = styled.div`
   padding: 2rem;
   display: flex;
   flex-direction: column;
+
+  h1 {
+    margin-bottom: 1rem;
+  }
 `;
 
-export const Header = styled.div`
+export const Search = styled.div`
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  gap: 2rem;
   margin-bottom: 2rem;
 
-  @media(max-width: 550px) {
-    flex-direction: column;
-    text-align: center;
+  .filter {
+    display: flex;
+    gap: 1rem;
+    button:nth-child(2) {
+      width: 100px;
+    }
+  }
+
+  .select__control {
+    width: 350px !important;
   }
 `;
 

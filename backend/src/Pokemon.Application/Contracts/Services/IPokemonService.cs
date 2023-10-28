@@ -6,6 +6,7 @@ namespace Pokemon.Application.Contracts.Services;
 public interface IPokemonService
 {
     Task<List<PokemonViewModel>> GetAll();
+    Task<List<PokemonViewModel>?> GetAllByPokemonTipo(int id);
     Task<PokemonViewModel?> GetById(int id);
     Task<AddPokemonViewModel?> Create(AddPokemonInputModel inputModel);
     Task<UpdatePokemonViewModel?> Update(int id, UpdatePokemonInputModel inputModel);
