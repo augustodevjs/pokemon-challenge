@@ -1,4 +1,5 @@
 ﻿using System.Linq.Expressions;
+using Pokemon.Application.DTO.v1.InputModel;
 using Pokemon.Application.DTO.v1.ViewModel;
 using Pokemon.Application.Services;
 using Pokemon.Application.Tests.Fixtures;
@@ -78,6 +79,145 @@ public class PokemonServiceTests : BaseServiceTest, IClassFixture<ServicesFixtur
             NotFound.Should().BeTrue();
             NotificatorMock.Verify(c => c.HandleNotFoundResource(), Times.Once);
             _pokemonRepositoryMock.Verify(c => c.GetById(It.IsAny<int>()), Times.Once);
+        }
+    }
+
+    #endregion
+
+    #region create
+
+    [Fact]
+    public async Task Create_Pokemon_ReturnPokemonViewModel()
+    {
+        // Arrange
+        SetupMocks(false);
+
+        var pokemonInputModel = new AddPokemonInputModel
+        {
+            Nome = "John",
+            Descricao = "Descricao",
+            ImagemUrl = "image",
+            PokemonTipoId = 1
+        };
+
+        // Act
+        var pokemonService = await _pokemonService.Create(pokemonInputModel);
+
+        // Assert
+        using (new AssertionScope())
+        {
+            pokemonService.Should().NotBeNull();
+            Erros.Should().BeEmpty();
+            _pokemonRepositoryMock.Verify(c => c.UnityOfWork.Commit(), Times.Once);
+            NotificatorMock.Verify(c => c.Handle(It.IsAny<string>()), Times.Never);
+            NotificatorMock.Verify(c => c.Handle(It.IsAny<List<ValidationFailure>>()), Times.Never);
+        }
+    }
+    
+    [Fact]
+    public async Task Create_Pokemon_HandleErrorValidation()
+    {
+        // Arrange
+        SetupMocks(false);
+        var pokemonInputModel = new AddPokemonInputModel();
+
+        // Act
+        var pokemonService = await _pokemonService.Create(pokemonInputModel);
+
+        // Assert
+        using (new AssertionScope())
+        {
+            pokemonService.Should().BeNull();
+            Erros.Should().NotBeEmpty();
+            NotificatorMock.Verify(c => c.Handle(It.IsAny<List<ValidationFailure>>()), Times.Once);
+        }
+    }
+    
+    [Fact]
+    public async Task Create_Pokemon_HandleErrorUnityOfWorkCommit()
+    {
+        // Arrange
+        SetupMocks(false, false);
+
+        var pokemonInputModel = new AddPokemonInputModel
+        {
+            Nome = "John",
+            Descricao = "Descricao",
+            ImagemUrl = "image",
+            PokemonTipoId = 1
+        };
+
+        // Act
+        var pokemonService = await _pokemonService.Create(pokemonInputModel);
+
+        // Assert
+        using (new AssertionScope())
+        {
+            pokemonService.Should().BeNull();
+            Erros.Should().NotBeEmpty();
+            Erros.Should().Contain("Não foi possível cadastrar o pokemon.");
+            _pokemonRepositoryMock.Verify(c => c.UnityOfWork.Commit(), Times.Once);
+            NotificatorMock.Verify(c => c.Handle(It.IsAny<string>()), Times.Once);
+            NotificatorMock.Verify(c => c.Handle(It.IsAny<List<ValidationFailure>>()), Times.Never);
+        }
+    }
+    
+    [Fact]
+    public async Task Create_Pokemon_ReturnHandleErrorPokemonNameAlreadyExist()
+    {
+        // Arrange
+        SetupMocks(true, false);
+
+        var pokemonInputModel = new AddPokemonInputModel
+        {
+            Nome = "John",
+            Descricao = "Descricao",
+            ImagemUrl = "image",
+            PokemonTipoId = 1
+        };
+
+        // Act
+        var pokemonService = await _pokemonService.Create(pokemonInputModel);
+
+        // Assert
+        using (new AssertionScope())
+        {
+            pokemonService.Should().BeNull();
+            Erros.Should().NotBeEmpty();
+            Erros.Should().Contain("Já existe um pokemon com esse nome.");
+            _pokemonRepositoryMock.Verify(c => c.UnityOfWork.Commit(), Times.Never);
+            NotificatorMock.Verify(c => c.Handle(It.IsAny<string>()), Times.Once);
+            NotificatorMock.Verify(c => c.Handle(It.IsAny<List<ValidationFailure>>()), Times.Never);
+        }
+    }
+    
+        
+    [Fact]
+    public async Task Create_Pokemon_ReturnHandleErrorTypeInvalidPokemon()
+    {
+        // Arrange
+        SetupMocks(false);
+
+        var pokemonInputModel = new AddPokemonInputModel
+        {
+            Nome = "John",
+            Descricao = "Descricao",
+            ImagemUrl = "image",
+            PokemonTipoId = 99
+        };
+
+        // Act
+        var pokemonService = await _pokemonService.Create(pokemonInputModel);
+
+        // Assert
+        using (new AssertionScope())
+        {
+            pokemonService.Should().BeNull();
+            Erros.Should().NotBeEmpty();
+            Erros.Should().Contain("O pokemón deve ter um tipo válido.");
+            _pokemonRepositoryMock.Verify(c => c.UnityOfWork.Commit(), Times.Never);
+            NotificatorMock.Verify(c => c.Handle(It.IsAny<string>()), Times.Once);
+            NotificatorMock.Verify(c => c.Handle(It.IsAny<List<ValidationFailure>>()), Times.Never);
         }
     }
 

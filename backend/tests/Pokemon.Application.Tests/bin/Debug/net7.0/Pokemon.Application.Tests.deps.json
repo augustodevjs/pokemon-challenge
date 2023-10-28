@@ -1317,10 +1317,16 @@
       "Pokemon.Application/1.0.0": {
         "dependencies": {
           "AutoMapper.Extensions.Microsoft.DependencyInjection": "12.0.1",
+          "Pokemon.Core": "1.0.0",
           "Pokemon.Infraestructure": "1.0.0"
         },
         "runtime": {
           "Pokemon.Application.dll": {}
+        }
+      },
+      "Pokemon.Core/1.0.0": {
+        "runtime": {
+          "Pokemon.Core.dll": {}
         }
       },
       "Pokemon.Domain/1.0.0": {
@@ -2162,6 +2168,11 @@
       "hashPath": "xunit.runner.visualstudio.2.4.5.nupkg.sha512"
     },
     "Pokemon.Application/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Pokemon.Core/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

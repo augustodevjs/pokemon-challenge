@@ -2166,6 +2166,7 @@
         "framework": ".NETCoreApp,Version=v7.0",
         "dependencies": {
           "AutoMapper.Extensions.Microsoft.DependencyInjection": "12.0.1",
+          "Pokemon.Core": "1.0.0",
           "Pokemon.Infraestructure": "1.0.0"
         },
         "compile": {
@@ -2173,6 +2174,16 @@
         },
         "runtime": {
           "bin/placeholder/Pokemon.Application.dll": {}
+        }
+      },
+      "Pokemon.Core/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v7.0",
+        "compile": {
+          "bin/placeholder/Pokemon.Core.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Pokemon.Core.dll": {}
         }
       },
       "Pokemon.Domain/1.0.0": {
@@ -6722,6 +6733,11 @@
       "type": "project",
       "path": "../../src/Pokemon.Application/Pokemon.Application.csproj",
       "msbuildProject": "../../src/Pokemon.Application/Pokemon.Application.csproj"
+    },
+    "Pokemon.Core/1.0.0": {
+      "type": "project",
+      "path": "../../src/Pokemon.Core/Pokemon.Core.csproj",
+      "msbuildProject": "../../src/Pokemon.Core/Pokemon.Core.csproj"
     },
     "Pokemon.Domain/1.0.0": {
       "type": "project",

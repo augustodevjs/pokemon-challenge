@@ -132,3 +132,5 @@ C:\Users\joaoa\source\repos\undefined\backend\tests\Pokemon.Application.Tests\ob
 C:\Users\joaoa\source\repos\undefined\backend\tests\Pokemon.Application.Tests\obj\Debug\net7.0\Pokemon.Application.Tests.pdb
 C:\Users\joaoa\source\repos\undefined\backend\tests\Pokemon.Application.Tests\obj\Debug\net7.0\Pokemon.Application.Tests.genruntimeconfig.cache
 C:\Users\joaoa\source\repos\undefined\backend\tests\Pokemon.Application.Tests\obj\Debug\net7.0\ref\Pokemon.Application.Tests.dll
+C:\Users\joaoa\source\repos\undefined\backend\tests\Pokemon.Application.Tests\bin\Debug\net7.0\Pokemon.Core.dll
+C:\Users\joaoa\source\repos\undefined\backend\tests\Pokemon.Application.Tests\bin\Debug\net7.0\Pokemon.Core.pdb

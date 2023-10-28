@@ -9,6 +9,7 @@
       "Pokemon.Application/1.0.0": {
         "dependencies": {
           "AutoMapper.Extensions.Microsoft.DependencyInjection": "12.0.1",
+          "Pokemon.Core": "1.0.0",
           "Pokemon.Infraestructure": "1.0.0"
         },
         "runtime": {
@@ -213,6 +214,11 @@
           }
         }
       },
+      "Pokemon.Core/1.0.0": {
+        "runtime": {
+          "Pokemon.Core.dll": {}
+        }
+      },
       "Pokemon.Domain/1.0.0": {
         "dependencies": {
           "FluentValidation.DependencyInjectionExtensions": "11.7.1"
@@ -378,6 +384,11 @@
       "sha512": "sha512-Qk5WB/skSZet5Yrz6AN2ywjZaB1pxfAmvQ+5I4khTkLwwIamI4QJoH2NphCWLFQL+2ar8HvsNCTmwYk0qhqL0w==",
       "path": "pomelo.entityframeworkcore.mysql/7.0.0",
       "hashPath": "pomelo.entityframeworkcore.mysql.7.0.0.nupkg.sha512"
+    },
+    "Pokemon.Core/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
     },
     "Pokemon.Domain/1.0.0": {
       "type": "project",

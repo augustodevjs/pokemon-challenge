@@ -52,3 +52,5 @@ C:\Users\joaoa\source\repos\undefined\backend\src\Pokemon.API\bin\Debug\net7.0\A
 C:\Users\joaoa\source\repos\undefined\backend\src\Pokemon.API\bin\Debug\net7.0\Swashbuckle.AspNetCore.Annotations.dll
 C:\Users\joaoa\source\repos\undefined\backend\src\Pokemon.API\bin\Debug\net7.0\Pokemon.Application.dll
 C:\Users\joaoa\source\repos\undefined\backend\src\Pokemon.API\bin\Debug\net7.0\Pokemon.Application.pdb
+C:\Users\joaoa\source\repos\undefined\backend\src\Pokemon.API\bin\Debug\net7.0\Pokemon.Core.dll
+C:\Users\joaoa\source\repos\undefined\backend\src\Pokemon.API\bin\Debug\net7.0\Pokemon.Core.pdb

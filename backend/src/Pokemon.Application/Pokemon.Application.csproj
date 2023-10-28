@@ -11,6 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Pokemon.Core\Pokemon.Core.csproj" />
     <ProjectReference Include="..\Pokemon.Infraestructure/Pokemon.Infraestructure.csproj" />
   </ItemGroup>
 
