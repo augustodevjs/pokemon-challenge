@@ -87,14 +87,6 @@ public class PokemonService : BaseService, IPokemonService
             return;
         }
 
-        // var preferencesProducts = await _pokemonRepository.GetProductsAssociatedClient(id);
-        //
-        // if (preferencesProducts.Any())
-        // {
-        //     Notificator.Handle("Não é possível remover o produto associado a um ou mais clientes.");
-        //     return;
-        // }
-
         _pokemonRepository.Delete(getPokemon);
 
         if (!await _pokemonRepository.UnityOfWork.Commit())

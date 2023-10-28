@@ -22,7 +22,7 @@ public class PokemonServiceTests : BaseServiceTest, IClassFixture<ServicesFixtur
         );
     }
 
-    #region AllPokemons
+    #region allPokemons
 
     [Fact]
     public async Task GetAll_ReturnListOfPokemonViewModel()
@@ -78,6 +78,66 @@ public class PokemonServiceTests : BaseServiceTest, IClassFixture<ServicesFixtur
             NotFound.Should().BeTrue();
             NotificatorMock.Verify(c => c.HandleNotFoundResource(), Times.Once);
             _pokemonRepositoryMock.Verify(c => c.GetById(It.IsAny<int>()), Times.Once);
+        }
+    }
+
+    #endregion
+
+    #region delete
+
+    [Fact]
+    public async Task Delete_Pokemon()
+    {
+        // Arrange
+        SetupMocks();
+
+        // Act
+        await _pokemonService.Delete(1);
+
+        // Assert
+        using (new AssertionScope())
+        {
+            Erros.Should().BeEmpty();
+            _pokemonRepositoryMock.Verify(c => c.GetById(It.IsAny<int>()), Times.Once);
+            _pokemonRepositoryMock.Verify(c => c.UnityOfWork.Commit(), Times.Once);
+        }
+    }
+    
+    [Fact]
+    public async Task Delete_Pokemon_ReturnHandleNotFoundResource()
+    {
+        // Arrange
+        SetupMocks();
+
+        // Act
+        await _pokemonService.Delete(2);
+
+        // Assert
+        using (new AssertionScope())
+        {
+            NotFound.Should().BeTrue();
+            NotificatorMock.Verify(c => c.HandleNotFoundResource(), Times.Once);
+            _pokemonRepositoryMock.Verify(c => c.GetById(It.IsAny<int>()), Times.Once);
+            _pokemonRepositoryMock.Verify(c => c.UnityOfWork.Commit(), Times.Never);
+        }
+    }
+    
+    [Fact]
+    public async Task Delete_Pokemon_ReturnErrorUnitOfWorkCommit()
+    {
+        // Arrange
+        SetupMocks(true, false, false);
+    
+        // Act
+        await _pokemonService.Delete(1);
+    
+        // Assert
+        using (new AssertionScope())
+        {
+            Erros.Should().NotBeEmpty();
+            Erros.Should().Contain("Não foi possível remover o pokemon.");
+            _pokemonRepositoryMock.Verify(c => c.GetById(It.IsAny<int>()), Times.Once);
+            _pokemonRepositoryMock.Verify(c => c.UnityOfWork.Commit(), Times.Once);
         }
     }
 
