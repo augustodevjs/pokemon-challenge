@@ -47,7 +47,7 @@ public class PokemonController : MainController
     
     [HttpPut("{id}")]
     [SwaggerOperation("Update a pokemon")]
-    [ProducesResponseType(typeof(PokemonViewModel), StatusCodes.Status200OK)]
+    [ProducesResponseType(typeof(UpdatePokemonViewModel), StatusCodes.Status200OK)]
     [ProducesResponseType(typeof(NotFoundResult), StatusCodes.Status404NotFound)]
     [ProducesResponseType(typeof(BadRequestResult), StatusCodes.Status400BadRequest)]
     public async Task<IActionResult> Update(int id, [FromBody] UpdatePokemonInputModel inputModel)
