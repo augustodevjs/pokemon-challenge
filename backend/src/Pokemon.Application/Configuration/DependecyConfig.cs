@@ -15,6 +15,7 @@ public static class DependecyConfig
         
         // Services
         services.AddScoped<IPokemonService, PokemonService>();
+        services.AddScoped<IPokemonTipoServce, PokemonTipoService>();
         
         // Repository
         services.AddScoped<IPokemonRepository, PokemonRepository>();

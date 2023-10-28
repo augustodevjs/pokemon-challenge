@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
+using Pokemon.Domain.Entities;
 using Pokemon.Application.DTO.v1.ViewModel;
 using Pokemon.Application.DTO.v1.InputModel;
-using Pokemon.Domain.Entities;
 
 namespace Pokemon.Application.AutoMapper;
 
@@ -21,6 +21,7 @@ public class AutoMapperProfile : Profile
 
         #region PokemonTipo
 
+        CreateMap<PokemonTipo, PokemonTipoViewModel>().ReverseMap();
         CreateMap<PokemonTipo, PokemonTipoViewModel>().ReverseMap();
 
         #endregion

@@ -2,8 +2,8 @@
 using Pokemon.Application.Notifications;
 using Swashbuckle.AspNetCore.Annotations;
 using Pokemon.Application.DTO.v1.ViewModel;
-using Pokemon.Application.Contracts.Services;
 using Pokemon.Application.DTO.v1.InputModel;
+using Pokemon.Application.Contracts.Services;
 
 namespace Pokemon.API.Controllers;
 
