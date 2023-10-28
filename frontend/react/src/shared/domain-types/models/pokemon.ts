@@ -38,3 +38,12 @@ export interface UpdatePokemonViewModel {
   imagemUrl: string;
   descricao: string;
 }
+
+// Form
+
+export interface FormPokemonInputModel {
+  pokemonTipoId: number;
+  nome: string;
+  imagemUrl: string;
+  descricao: string;
+}
