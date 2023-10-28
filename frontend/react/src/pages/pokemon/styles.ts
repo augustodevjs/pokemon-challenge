@@ -38,6 +38,15 @@ export const Cards = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 0 1rem;
+
+  @media(max-width: 960px) {
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  @media(max-width: 700px) {
+    grid-template-columns: 1fr;
+  }
 `;
 
 export const ButtonGroup = styled.div`

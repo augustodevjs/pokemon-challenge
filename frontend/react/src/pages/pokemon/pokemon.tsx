@@ -1,8 +1,37 @@
 import * as S from './styles'
-import { Button, CardPokemon } from "../../shared"
+import { useEffect, useState } from 'react'
+import { RemovePokemonModal } from './components'
 import PokemonSvg from '../../shared/assets/pokemon.svg'
+import { Alert, Button, CardPokemon, PokemonService, PokemonViewModel, useModal } from "../../shared"
 
 export const Pokemon = () => {
+  const [data, setData] = useState<PokemonViewModel[]>([])
+  const [selectedPokemon, setSelectedPokemon] = useState<PokemonViewModel>();
+
+  const [isRemoveModalOpen, openRemoveModal, closeRemoveModal] = useModal();
+
+  const handleRemove = (pokemon: PokemonViewModel) => {
+    setSelectedPokemon(pokemon);
+    openRemoveModal();
+  };
+
+
+  const loadData = async () => {
+    try {
+      const response = await PokemonService.getAll();
+      setData(response)
+    } catch (error) {
+      Alert.callError({
+        title: (error as Error).name,
+        description: (error as Error).message,
+      });
+    }
+  }
+
+  useEffect(() => {
+    loadData()
+  }, [])
+
   return (
     <S.Container>
       <S.Header>
@@ -15,11 +44,33 @@ export const Pokemon = () => {
         </S.ButtonGroup>
       </S.Header>
 
-      <S.Cards>
-        <CardPokemon imageUrl="https://miro.medium.com/v2/resize:fit:1100/format:webp/1*wfFCdF0GVcEMhIK9ESU-Bg.jpeg" nome='teste' description='Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica' />
-        <CardPokemon imageUrl="https://miro.medium.com/v2/resize:fit:1100/format:webp/1*wfFCdF0GVcEMhIK9ESU-Bg.jpeg" nome='teste' description='Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica' />
-        <CardPokemon imageUrl="https://miro.medium.com/v2/resize:fit:1100/format:webp/1*wfFCdF0GVcEMhIK9ESU-Bg.jpeg" nome='teste' description='Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica' />
-      </S.Cards>
+      {data.length !== 0 ? (
+        <S.Cards>
+          {data.map(data => (
+            <CardPokemon
+              key={data.id}
+              nome={data.nome}
+              imageUrl={data.imagemUrl}
+              description={data.descricao}
+              onEdit={() => console.log(data)}
+              onDelete={() => handleRemove(data)}
+            />
+          ))}
+        </S.Cards>
+      ) : (
+        <S.NoData>
+          Não há pokemons para exibir
+        </S.NoData>
+      )}
+
+      <RemovePokemonModal
+        setData={setData}
+        isOpen={isRemoveModalOpen}
+        name={selectedPokemon?.nome}
+        onRequestClose={closeRemoveModal}
+        id={selectedPokemon?.id.toString()}
+      />
+
     </S.Container>
   )
 }
