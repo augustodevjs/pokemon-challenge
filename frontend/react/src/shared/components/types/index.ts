@@ -73,3 +73,11 @@ export type SelectOption = {
 export type SelectProps = ReactSelectProps<SelectOption | any> & {
   placeholder: string;
 }
+
+export type CardPokemonProps = {
+  imageUrl: string;
+  nome: string;
+  description: string
+  onDelete: () => void
+  onEdit: () => void
+}

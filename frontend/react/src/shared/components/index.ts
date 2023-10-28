@@ -4,8 +4,9 @@ export * from './card/card';
 export * from './header/header';
 export * from './button/button';
 export * from './select/select'
+export * from './layout/main-layout'
 export * from './text-input/text-input';
+export * from './card-pokemon/card-pokemon'
 export * from './icon-button/icon-button';
 export * from './confirm-modal/confirm-modal';
 export * from './text-area-input/text-area-input';
-export * from './layout/main-layout'

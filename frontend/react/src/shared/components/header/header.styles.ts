@@ -18,22 +18,3 @@ export const Container = styled.div`
     }
   }
 `
-
-export const Links = styled.ul`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 1rem;
-
-  li {
-    cursor: pointer;
-
-    &:hover {
-      color: #a1a1a1;
-    }
-  }
-
-  @media(max-width: 410px) {
-    justify-content: start;
-  }
-`
