@@ -1,20 +1,20 @@
 import * as S from './styles'
 import { useEffect, useState } from 'react'
-import { RemovePokemonModal } from './components'
 import PokemonSvg from '../../shared/assets/pokemon.svg'
+import { AddPokemonModal, RemovePokemonModal } from './components'
 import { Alert, Button, CardPokemon, PokemonService, PokemonViewModel, useModal } from "../../shared"
 
 export const Pokemon = () => {
   const [data, setData] = useState<PokemonViewModel[]>([])
   const [selectedPokemon, setSelectedPokemon] = useState<PokemonViewModel>();
 
+  const [isAddModalOpen, openAddModal, closeAddModal] = useModal();
   const [isRemoveModalOpen, openRemoveModal, closeRemoveModal] = useModal();
 
   const handleRemove = (pokemon: PokemonViewModel) => {
     setSelectedPokemon(pokemon);
     openRemoveModal();
   };
-
 
   const loadData = async () => {
     try {
@@ -40,7 +40,7 @@ export const Pokemon = () => {
         </S.Content>
 
         <S.ButtonGroup>
-          <Button onClick={() => console.log('oi')}>Novo Pokemon</Button>
+          <Button onClick={openAddModal}>Novo Pokemon</Button>
         </S.ButtonGroup>
       </S.Header>
 
@@ -63,6 +63,12 @@ export const Pokemon = () => {
         </S.NoData>
       )}
 
+      <AddPokemonModal
+        setData={setData}
+        isOpen={isAddModalOpen}
+        onRequestClose={closeAddModal}
+      />
+
       <RemovePokemonModal
         setData={setData}
         isOpen={isRemoveModalOpen}
@@ -70,7 +76,6 @@ export const Pokemon = () => {
         onRequestClose={closeRemoveModal}
         id={selectedPokemon?.id.toString()}
       />
-
     </S.Container>
   )
 }

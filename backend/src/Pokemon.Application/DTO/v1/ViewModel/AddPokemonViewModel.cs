@@ -1,6 +1,6 @@
 ﻿namespace Pokemon.Application.DTO.v1.ViewModel;
 
-public class AddPokemonViewModel
+public class AddPokemonViewModel : Base
 {
     public int PokemonTipoId { get; set; }
     public string Nome { get; set; } = null!;

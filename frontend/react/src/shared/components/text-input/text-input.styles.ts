@@ -10,14 +10,14 @@ export const TextInputForm = styled.div<Props>`
   display: flex;
   flex-direction: column;
 
-  ${({ error }) =>
+  /* ${({ error }) =>
     !error &&
     css`
       margin-top: 1rem;
       & + & {
         margin-top: 1rem;
       }
-    `}
+    `} */
 
   label {
     margin-bottom: 6px;

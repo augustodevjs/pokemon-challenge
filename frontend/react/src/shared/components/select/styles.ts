@@ -7,9 +7,13 @@ export const Select = styled(reactSelect)`
   }
   
   div {
-    background-color: #29292e;
+    background-color: #121214;
     padding: 0.3rem;
     border: 0;
     color: white;
+
+    .select__placeholder {
+      color: #7c7c8a;  
+    }
   }
 `;

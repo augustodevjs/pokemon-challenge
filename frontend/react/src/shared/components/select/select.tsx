@@ -1,5 +1,5 @@
-import { Theme } from 'react-select'
 import { SelectProps } from '..'
+import { Theme } from 'react-select'
 import * as S from './styles'
 
 export const Select = ({ placeholder, ...rest }: SelectProps) => {

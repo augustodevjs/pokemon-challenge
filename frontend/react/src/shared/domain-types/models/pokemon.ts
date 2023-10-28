@@ -1,4 +1,5 @@
 import { PokemonTipoViewModel } from ".";
+import { SelectOption } from "../..";
 
 export interface PokemonViewModel {
   id: number;
@@ -17,6 +18,7 @@ export interface AddPokemonInputModel {
 }
 
 export interface AddPokemonViewModel {
+  id: number;
   pokemonTipoId: number;
   nome: string;
   imagemUrl: string;
@@ -40,9 +42,8 @@ export interface UpdatePokemonViewModel {
 }
 
 // Form
-
 export interface FormPokemonInputModel {
-  pokemonTipoId: number;
+  pokemonTipo: SelectOption;
   nome: string;
   imagemUrl: string;
   descricao: string;
