@@ -4,9 +4,9 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { PokemonService, PokemonTipoService } from '../../shared/services';
 import { PokemonTipoViewModel, PokemonViewModel } from '../../shared/domain-types';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { RegisterComponent } from './components/register/register.component';
-import { DetailsComponent } from './components/details/details.component';
 import { HttpErrorResponse } from '@angular/common/http';
+import { AddPokemonModalComponent } from "./components/add-pokemon-modal/add-pokemon-modal.component";
+import { EditPokemonModalComponent } from "./components/edit-pokemon-modal/edit-pokemon-modal.component";
 
 @Component({
   selector: 'app-pokemon',
@@ -57,7 +57,7 @@ export class PokemonComponent implements OnInit {
   }
 
   open() {
-    const modalRef = this.modal.open(RegisterComponent, {
+    const modalRef = this.modal.open(AddPokemonModalComponent, {
       backdrop: 'static'
     });
     modalRef.componentInstance.cadastroSucessoEnviado.subscribe((success: boolean) => {
@@ -68,7 +68,7 @@ export class PokemonComponent implements OnInit {
   }
 
   openDetailsModal(id: number) {
-    const modalRef = this.modal.open(DetailsComponent);
+    const modalRef = this.modal.open(EditPokemonModalComponent);
     modalRef.componentInstance.pokemonId = this.pokemonId = id;
     modalRef.componentInstance.updateSucessoEnviado.subscribe((success: boolean) => {
       if (success) {

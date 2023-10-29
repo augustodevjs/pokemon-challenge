@@ -8,17 +8,17 @@ import { PokemonService, PokemonTipoService } from 'src/app/shared/services';
 import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
-  selector: 'app-register',
+  selector: 'app-add-pokemon-modal',
   standalone: true,
-  templateUrl: './register.component.html',
+  templateUrl: './add-pokemon-modal.component.html',
   imports: [
     ReactiveFormsModule,
     NgIf,
     NgForOf
   ],
-  styleUrls: ['./register.component.scss']
+  styleUrls: ['./add-pokemon-modal.component.scss']
 })
-export class RegisterComponent implements OnInit {
+export class AddPokemonModalComponent implements OnInit {
   form!: FormGroup;
   pokemonTipos: PokemonTipoViewModel[] = [];
 

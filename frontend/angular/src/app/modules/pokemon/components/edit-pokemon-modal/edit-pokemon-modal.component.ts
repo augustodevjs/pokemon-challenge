@@ -10,15 +10,15 @@ import { HttpErrorResponse } from '@angular/common/http';
 @Component({
   selector: 'app-details',
   standalone: true,
-  templateUrl: './details.component.html',
+  templateUrl: './edit-pokemon-modal.component.html',
   imports: [
     ReactiveFormsModule,
     NgIf,
     NgForOf
   ],
-  styleUrls: ['./details.component.scss']
+  styleUrls: ['./edit-pokemon-modal.component.scss']
 })
-export class DetailsComponent implements OnInit {
+export class EditPokemonModalComponent implements OnInit {
   form!: FormGroup;
   pokemon!: PokemonViewModel;
   pokemonTipo!: PokemonTipoViewModel[];
