@@ -18,7 +18,7 @@ export const AddPokemonModal: React.FC<Props> = ({
 
   const form = useForm<FormPokemonAddInputModel>({
     mode: 'onChange',
-    resolver: yupResolver(pokemonValidator),
+    resolver: yupResolver(pokemonValidator)!,
   });
 
   const submitButton = (

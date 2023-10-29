@@ -1,11 +1,11 @@
-import { AddPokemonInputModel, AddPokemonViewModel, FormPokemonAddInputModel, FormPokemonUpdateInputModel, PokemonViewModel, UpdatePokemonInputModel, UpdatePokemonViewModel } from "..";
+import { AddPokemonInputModel, AddPokemonViewModel, FormPokemonAddInputModel, FormPokemonInputModel, PokemonViewModel, UpdatePokemonInputModel, UpdatePokemonViewModel } from "..";
 
 export const FormPokemonToAddPokemon = (pokemon: FormPokemonAddInputModel): AddPokemonInputModel => {
   return {
     nome: pokemon.nome,
     descricao: pokemon.descricao,
     imagemUrl: pokemon.imagemUrl,
-    pokemonTipoId: pokemon.pokemonTipo.value
+    pokemonTipoId: pokemon.pokemonTipo.id
   }
 }
 
@@ -16,31 +16,31 @@ export const FormPokemonAddToPokemonViewModel = (pokemon: AddPokemonViewModel, f
     imagemUrl: pokemon.imagemUrl,
     nome: pokemon.nome,
     pokemonTipo: {
-      id: form.pokemonTipo.value,
-      nome: form.pokemonTipo.label
+      id: form.pokemonTipo.id,
+      nome: form.pokemonTipo.nome
     }
   }
 }
 
-export const FormPokemonToUpdatePokemon = (pokemon: FormPokemonUpdateInputModel, id: number): UpdatePokemonInputModel => {
+export const FormPokemonToUpdatePokemon = (pokemon: FormPokemonInputModel, id: number): UpdatePokemonInputModel => {
   return {
     id,
     nome: pokemon.nome,
     descricao: pokemon.descricao,
     imagemUrl: pokemon.imagemUrl,
-    pokemonTipoId: pokemon.pokemonTipo.value
+    pokemonTipoId: pokemon.pokemonTipo.id
   }
 }
 
-export const FormPokemonUpdateToPokemonViewModel = (pokemon: UpdatePokemonViewModel, form: FormPokemonUpdateInputModel): PokemonViewModel => {
+export const FormPokemonUpdateToPokemonViewModel = (form: FormPokemonInputModel, response: UpdatePokemonViewModel, id: number): PokemonViewModel => {
   return {
-    id: form.id,
-    descricao: pokemon.descricao,
-    imagemUrl: pokemon.imagemUrl,
-    nome: pokemon.nome,
+    id,
+    descricao: response.descricao,
+    imagemUrl: response.imagemUrl,
+    nome: response.nome,
     pokemonTipo: {
-      id: form.pokemonTipo.value,
-      nome: form.pokemonTipo.label
+      id: form.pokemonTipo.id,
+      nome: form.pokemonTipo.nome
     }
   }
 }

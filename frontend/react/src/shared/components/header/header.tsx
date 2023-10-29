@@ -1,10 +1,7 @@
-import * as S from './header.styles';
+import { Button, HeaderProps } from '..';
 import PokemonSvg from '../../assets/pokemon.svg'
-import { Button } from '..';
 
-type HeaderProps = {
-  onAdd: () => void
-}
+import * as S from './header.styles';
 
 export const Header: React.FC<HeaderProps> = ({ onAdd }) => {
   return (

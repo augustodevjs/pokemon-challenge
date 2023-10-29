@@ -5,7 +5,7 @@ type Props = {
   size: string;
 };
 
-export const Modal = styled(ReactModal)<Props>`
+export const Modal = styled(ReactModal) <Props>`
   width: 100%;
   background: #202024;
   padding: 1.75rem;

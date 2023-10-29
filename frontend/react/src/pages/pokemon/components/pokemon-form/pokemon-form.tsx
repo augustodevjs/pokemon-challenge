@@ -1,6 +1,5 @@
-import { useCallback, useEffect, useState } from 'react';
 import { Controller, SubmitHandler, useFormContext } from 'react-hook-form';
-import { TextInput, FormPokemonInputModel, TextAreaInput, Select, SelectOption, PokemonTipoViewModel, PokemonTipoService, Alert } from '../../../../shared';
+import { TextInput, FormPokemonInputModel, TextAreaInput, RemoteSelect, setupPokemonApiConfig } from '../../../../shared';
 
 import * as S from './pokemon-form.styles'
 
@@ -11,33 +10,6 @@ type Props = {
 
 export const PokemonForm: React.FC<Props> = ({ onSubmit, id }) => {
   const { register, handleSubmit, formState, control } = useFormContext<FormPokemonInputModel>();
-
-  const [pokemonTipoData, setPokemonTipoData] = useState<PokemonTipoViewModel[]>([]);
-
-  const loadData = useCallback(async () => {
-    try {
-      const pokemons = await PokemonTipoService.getAll();
-      setPokemonTipoData(pokemons);
-    } catch (error) {
-      handleError(error as Error);
-    }
-  }, [setPokemonTipoData]);
-
-  const handleError = (error: Error, title = error.name, description = error.message) => {
-    Alert.callError({
-      title,
-      description,
-    });
-  };
-
-  const pokemonClients: SelectOption[] = pokemonTipoData.map((client) => ({
-    value: client.id,
-    label: client.nome,
-  }));
-
-  useEffect(() => {
-    loadData();
-  }, [loadData]);
 
   return (
     <S.Form autoComplete='off' onSubmit={handleSubmit(onSubmit)} id={id}>
@@ -71,27 +43,16 @@ export const PokemonForm: React.FC<Props> = ({ onSubmit, id }) => {
       />
 
       <Controller
-        control={control}
         name="pokemonTipo"
-        render={({ field: { onChange, value }, fieldState }) => (
-          <S.SelectController>
-            <label>Tipo do Pokemon</label>
-            <Select
-              isClearable
-              defaultValue={null}
-              options={pokemonClients}
-              value={pokemonClients.find((el) => el.value === value)}
-              onChange={(option: SelectOption | null) => {
-                if (option === null) {
-                  onChange(null);
-                  return;
-                }
-                onChange(option);
-              }}
-              placeholder="Selecione o tipo do Pokemon"
-            />
-            {fieldState.error && <span className='error'>{fieldState.error.message}</span>}
-          </S.SelectController>
+        control={control}
+        render={({ field }) => (
+          <RemoteSelect
+            apiConfig={setupPokemonApiConfig()}
+            endpoint="/pokemon-tipo"
+            label="Tipo do Pokemon"
+            error={formState.errors.pokemonTipo?.nome?.message}
+            {...field}
+          />
         )}
       />
     </S.Form>

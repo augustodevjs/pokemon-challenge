@@ -1,9 +1,9 @@
 import { Dispatch, SetStateAction, useCallback, useEffect, useState } from "react";
-import { Alert, Button, FormPokemonUpdateInputModel, Modal, ModalProps, PokemonMapper, PokemonService, PokemonViewModel, ValidationError, pokemonValidator } from "../../../../shared";
-import { yupResolver } from "@hookform/resolvers/yup";
+import { Alert, Button, FormPokemonInputModel, Modal, ModalProps, PokemonMapper, PokemonService, PokemonViewModel, ValidationError, pokemonValidator } from "../../../../shared";
 import { FormProvider, useForm } from "react-hook-form";
 import { FaPen } from "react-icons/fa";
 import { PokemonForm } from "..";
+import { yupResolver } from "@hookform/resolvers/yup";
 
 type Props = Pick<ModalProps, 'isOpen' | 'onRequestClose'> & {
   id?: string;
@@ -16,9 +16,9 @@ export const EditPokemonModal: React.FC<Props> = ({
   setData,
   id,
 }) => {
-  const form = useForm<FormPokemonUpdateInputModel>({
+  const form = useForm<FormPokemonInputModel>({
     mode: 'onChange',
-    // resolver: yupResolver(pokemonValidator),
+    resolver: yupResolver(pokemonValidator),
   });
 
   const [isLoading, setIsLoading] = useState(false);
@@ -27,21 +27,7 @@ export const EditPokemonModal: React.FC<Props> = ({
     try {
       if (id) {
         const response = await PokemonService.loadById({ id: Number(id) });
-
-        form.reset({
-          descricao: response.descricao,
-          imagemUrl: response.imagemUrl,
-          nome: response.nome,
-          pokemonTipo: {
-            label: response.pokemonTipo.nome,
-            value: response.pokemonTipo.id
-          }
-        })
-
-        form.setValue('pokemonTipo', {
-          label: response.pokemonTipo.nome,
-          value: response.pokemonTipo.id
-        })
+        form.reset(response)
       }
     } catch (error) {
       Alert.callError({
@@ -55,14 +41,12 @@ export const EditPokemonModal: React.FC<Props> = ({
     loadData()
   }, [id, loadData]);
 
-  const onSuccess = async (data: FormPokemonUpdateInputModel) => {
+  const onSuccess = async (data: FormPokemonInputModel) => {
     if (id) {
-      const toResponse = PokemonMapper.FormPokemonToUpdatePokemon(data);
+      const toResponse = PokemonMapper.FormPokemonToUpdatePokemon(data, Number(id));
       const response = await PokemonService.update({ data: toResponse, id: Number(id) });
 
-      const teste = PokemonMapper.FormPokemonUpdateToPokemonViewModel(response, data)
-
-      console.log(teste)
+      const responseMapped = PokemonMapper.FormPokemonUpdateToPokemonViewModel(data, response, Number(id))
 
       Alert.callSuccess({
         title: 'Produto atualizado com sucesso!',
@@ -71,11 +55,11 @@ export const EditPokemonModal: React.FC<Props> = ({
 
       setIsLoading(false);
 
-      // setData((prevData) =>
-      //   prevData.map((client) =>
-      //     client.id === response.id ? { ...response } : client,
-      //   ),
-      // );
+      setData((prevData) =>
+        prevData.map((client) =>
+          client.id === responseMapped.id ? { ...responseMapped } : client,
+        ),
+      );
 
       form.reset();
     }
@@ -98,7 +82,7 @@ export const EditPokemonModal: React.FC<Props> = ({
     }
   };
 
-  const onSubmit = async (data: FormPokemonUpdateInputModel) => {
+  const onSubmit = async (data: FormPokemonInputModel) => {
     setIsLoading(true);
     try {
       await onSuccess(data)

@@ -43,14 +43,14 @@ export interface UpdatePokemonViewModel {
 
 // Form
 export interface FormPokemonInputModel {
-  pokemonTipo: SelectOption;
+  pokemonTipo: PokemonTipoViewModel;
   nome: string;
   imagemUrl: string;
   descricao: string;
 }
 
 export interface FormPokemonAddInputModel {
-  pokemonTipo: SelectOption;
+  pokemonTipo: PokemonTipoViewModel;
   nome: string;
   imagemUrl: string;
   descricao: string;

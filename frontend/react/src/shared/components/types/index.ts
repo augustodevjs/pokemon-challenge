@@ -69,3 +69,7 @@ export type CardPokemonProps = {
   onDelete: () => void
   onEdit: () => void
 }
+
+export type HeaderProps = {
+  onAdd: () => void
+}
