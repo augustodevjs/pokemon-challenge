@@ -45,6 +45,7 @@ export class AddPokemonModalComponent implements OnInit {
         pokemonTipoId: this.form.controls['pokemontipo'].value,
         imagemUrl: this.form.controls['imagem'].value
       };
+
       this.pokemonService.add(pokemon).subscribe({
         next: () => {
           Swal.fire({
@@ -59,14 +60,18 @@ export class AddPokemonModalComponent implements OnInit {
               confirmButton: 'confirm-button-sweet-alert',
               htmlContainer: 'html-sweet-alert',
             },
-          })
-          this.form.reset();
-          this.form.controls['pokemontipo'].setValue('');
-          this.cadastroSucessoEnviado.emit(true);
+          }).then((result) => {
+            if (result.isConfirmed) {
+              this.form.reset();
+              this.form.controls['pokemontipo'].setValue('');
+              this.cadastroSucessoEnviado.emit(true);
+              this.activeModal.close('Submit click');
+            }
+          });
         },
 
         error: (err: HttpErrorResponse) => {
-          console.log(err)
+          console.log(err);
         }
       });
     } else {

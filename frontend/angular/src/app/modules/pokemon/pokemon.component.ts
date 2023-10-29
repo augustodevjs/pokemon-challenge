@@ -84,13 +84,19 @@ export class PokemonComponent implements OnInit {
 
   removePokemon(id: number) {
     Swal.fire({
-      title: 'Você tem certeza?',
-      text: "O pokemón será removido permanentemente!",
+      title: 'Você tem certeza que deseja remover o pokemon?',
       icon: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
       cancelButtonColor: '#d33',
-      confirmButtonText: 'Sim!'
+      confirmButtonText: 'Confirmar',
+      cancelButtonText: "Fechar",
+      customClass: {
+        popup: 'popup-sweet-alert-background',
+        title: 'title-sweet-alert',
+        confirmButton: 'confirm-button-sweet-alert',
+        htmlContainer: 'html-sweet-alert',
+      },
     })
       .then((result) => {
         if (result.isConfirmed) {
@@ -99,10 +105,15 @@ export class PokemonComponent implements OnInit {
               this.getPokemons();
               Swal.fire(
                 {
-                  title: 'Removido!',
-                  text: 'Seu pokémon foi removido.',
+                  title: 'Pokemon removido com sucesso!',
                   icon: 'success',
-                  showConfirmButton: true
+                  showConfirmButton: true,
+                  customClass: {
+                    popup: 'popup-sweet-alert-background',
+                    title: 'title-sweet-alert',
+                    confirmButton: 'confirm-button-sweet-alert',
+                    htmlContainer: 'html-sweet-alert',
+                  },
                 }
               )
             },
