@@ -1,5 +1,6 @@
 import AsyncSelect from 'react-select/async'
 import { HttpClient, RemoteSelectProps, SelectWrapper, withBaseInput } from '../..'
+import { Theme } from 'react-select'
 
 const RemoteSelect: React.FC<RemoteSelectProps> = ({
   apiConfig,
@@ -33,11 +34,20 @@ const RemoteSelect: React.FC<RemoteSelectProps> = ({
         classNamePrefix="select"
         placeholder={placeholder}
         menuPosition="fixed"
+        isSearchable={false}
         noOptionsMessage={() => 'Nenhum Resultado'}
         loadingMessage={() => 'Buscando...'}
         cacheOptions
         loadOptions={loadOptions}
         defaultOptions
+        theme={(theme: Theme) => ({
+          ...theme,
+          colors: {
+            ...theme.colors,
+            primary25: 'black',
+            primary: '#212121',
+          },
+        })}
         getOptionLabel={
           getOptionLabel ? getOptionLabel : option => (option as any).nome
         }
