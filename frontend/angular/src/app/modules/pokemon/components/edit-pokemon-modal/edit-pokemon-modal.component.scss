@@ -1,35 +1,23 @@
-form {
-  margin-top: 1rem;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-
-  .form-group {
-    width: 300px !important;
+.modal-header {
+  h4 {
+    font-size: 1.35rem;
+    font-weight: 600;
   }
 
-  .input-form{
-    min-width: 400px;
+  .btn-close:focus {
+    box-shadow: none !important;
+  }
+}
+
+.modal-body {
+  .error-text {
+    margin-top: 8px !important;
   }
 
-  .botoes{
-    display: flex;
-    gap: 20px;
-    button {
-      align-self: start;
+  .form-select {
+    &::placeholder {
+      color: red !important;
+      background-color: red !important;
     }
   }
-}
-
-button {
-  margin-bottom: 0;
-}
-
-.fixed-textarea {
-  resize: none;
-  min-height: 100px;
-}
-
-.alert {
-  margin-top: 3px;
 }

@@ -1,40 +1,81 @@
 <div class="modal-header">
-  <h4 class="modal-title">Detalhes</h4>
+  <h4 class="modal-title">Edição de Pokemon</h4>
   <button
     type="button"
-    class="btn-close"
     aria-label="Close"
+    class="btn-close btn-close-white"
     (click)="activeModal.dismiss('Cross click')"
   ></button>
 </div>
 
 <div class="modal-body">
-  <form [formGroup]="form">
+  <form autoComplete="off" [formGroup]="form">
     <div class="mb-3">
-      <label for="nome" class="form-label">Pokemón*</label>
+      <label for="nome" class="form-label">Nome</label>
       <input
         type="email"
         class="input-form form-control"
         id="nome"
         formControlName="nome"
+        placeholder="Digite o nome do Pokémon"
       />
       <div *ngIf="verificateValidTouched('nome')">
         <div
           *ngFor="let erro of getErrors('nome')"
-          class="alert alert-danger"
+          class="error-text"
           role="alert"
         >
-          <span>{{ erro }}</span>
+          <span class="text-danger">{{ erro }}</span>
         </div>
       </div>
     </div>
+
     <div class="mb-3">
-      <label for="pokemon-tipo" class="form-label">Tipo*</label>
+      <label for="descricao" class="form-label">Descrição</label>
+      <textarea
+        class="input-form form-control fixed-textarea"
+        id="descricao"
+        formControlName="descricao"
+        placeholder="Digite a descrição do Pokémon"
+      ></textarea>
+      <div *ngIf="verificateValidTouched('descricao')">
+        <div
+          *ngFor="let erro of getErrors('descricao')"
+          class="error-text"
+          role="alert"
+        >
+          <span class="text-danger">{{ erro }}</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="imagem" class="form-label">Imagem</label>
+      <input
+        type="url"
+        class="input-form form-control"
+        id="imagem"
+        formControlName="imagem"
+        placeholder="Insira a URL da imagem do Pokémon"
+      />
+      <div *ngIf="verificateValidTouched('imagem')">
+        <div
+          *ngFor="let erro of getErrors('imagem')"
+          class="error-text"
+          role="alert"
+        >
+          <span class="text-danger">{{ erro }}</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="pokemon-tipo" class="form-label">Tipo do Pokemon</label>
       <select
         class="input-form form-select"
         id="pokemon-tipo"
         formControlName="pokemontipo"
-        aria-label="Selecione um tipo"
+        placeholder="Selecione o tipo do Pokémon"
       >
         <option value="" disabled selected>Selecione um tipo</option>
         <option *ngFor="let tipo of pokemonTipo" [ngValue]="tipo.id">
@@ -44,45 +85,10 @@
       <div *ngIf="verificateValidTouched('pokemontipo')">
         <div
           *ngFor="let erro of getErrors('pokemontipo')"
-          class="alert alert-danger"
+          class="error-text"
           role="alert"
         >
-          <span>{{ erro }}</span>
-        </div>
-      </div>
-    </div>
-    <div class="mb-3">
-      <label for="descricao" class="form-label">Descrição*</label>
-      <textarea
-        class="input-form form-control fixed-textarea"
-        id="descricao"
-        formControlName="descricao"
-      ></textarea>
-      <div *ngIf="verificateValidTouched('descricao')">
-        <div
-          *ngFor="let erro of getErrors('descricao')"
-          class="alert alert-danger"
-          role="alert"
-        >
-          <span>{{ erro }}</span>
-        </div>
-      </div>
-    </div>
-    <div class="mb-3">
-      <label for="imagem" class="form-label">Imagem url</label>
-      <input
-        type="url"
-        class="input-form form-control"
-        id="imagem"
-        formControlName="imagem"
-      />
-      <div *ngIf="verificateValidTouched('imagem')">
-        <div
-          *ngFor="let erro of getErrors('imagem')"
-          class="alert alert-danger"
-          role="alert"
-        >
-          <span>{{ erro }}</span>
+          <span class="text-danger">{{ erro }}</span>
         </div>
       </div>
     </div>
@@ -90,14 +96,14 @@
 </div>
 
 <div class="modal-footer">
-  <button type="submit" class="btn btn-warning" (click)="onSubmit()">
-    Atualizar
-  </button>
   <button
     type="button"
-    class="btn btn-outline-dark"
+    class="btn btn-danger"
     (click)="activeModal.close('Close click')"
   >
     Fechar
+  </button>
+  <button type="submit" class="btn btn-success" (click)="onSubmit()">
+    Atualizar
   </button>
 </div>

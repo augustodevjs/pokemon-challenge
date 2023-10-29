@@ -49,16 +49,25 @@ export class EditPokemonModalComponent implements OnInit {
       };
 
       this.pokemonService.update(this.pokemonId, pokemon).subscribe({
-        next: value => {
+        next: () => {
           Swal.fire({
             position: 'center',
             icon: 'success',
             title: 'Pokemón atualizado com sucesso!',
-            showConfirmButton: false,
-            timer: 1500
+            showConfirmButton: true,
+            returnFocus: false,
+            customClass: {
+              popup: 'popup-sweet-alert-background',
+              title: 'title-sweet-alert',
+              confirmButton: 'confirm-button-sweet-alert',
+              htmlContainer: 'html-sweet-alert',
+            },
+          }).then((result) => {
+            if (result.isConfirmed) {
+              this.updateSucessoEnviado.emit(true);
+              this.activeModal.close('Submit click');
+            }
           });
-
-          this.updateSucessoEnviado.emit(true);
         },
         error: (err: HttpErrorResponse) => {
           console.error(err);
