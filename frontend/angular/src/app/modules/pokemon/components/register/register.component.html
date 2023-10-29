@@ -1,0 +1,103 @@
+<div class="modal-header">
+  <h4 class="modal-title">Cadastrar</h4>
+  <button
+    type="button"
+    class="btn-close"
+    (click)="activeModal.dismiss('Cross click')"
+    aria-label="Close"
+  ></button>
+</div>
+
+<div class="modal-body">
+  <form [formGroup]="form">
+    <div class="mb-3">
+      <label for="nome" class="form-label">Pokemón*</label>
+      <input
+        type="email"
+        class="input-form form-control"
+        id="nome"
+        formControlName="nome"
+      />
+      <div *ngIf="verificateValidTouched('nome')">
+        <div
+          *ngFor="let erro of getErrors('nome')"
+          class="alert alert-danger"
+          role="alert"
+        >
+          <span>{{ erro }}</span>
+        </div>
+      </div>
+    </div>
+    <div class="mb-3">
+      <label for="pokemon-tipo" class="form-label">Tipo*</label>
+      <select
+        class="input-form form-select"
+        id="pokemon-tipo"
+        formControlName="pokemontipo"
+        aria-label="Selecione um tipo"
+      >
+        <option value="" disabled selected>Selecione um tipo</option>
+        <option *ngFor="let tipo of pokemonTipos" [ngValue]="tipo.id">
+          {{ tipo.nome }}
+        </option>
+      </select>
+      <div *ngIf="verificateValidTouched('pokemontipo')">
+        <div
+          *ngFor="let erro of getErrors('pokemontipo')"
+          class="alert alert-danger"
+          role="alert"
+        >
+          <span> {{ erro }} </span>
+        </div>
+      </div>
+    </div>
+    <div class="mb-3">
+      <label for="descricao" class="form-label">Descrição*</label>
+      <textarea
+        class="input-form form-control fixed-textarea"
+        id="descricao"
+        formControlName="descricao"
+      ></textarea>
+      <div *ngIf="verificateValidTouched('descricao')">
+        <div
+          *ngFor="let erro of getErrors('descricao')"
+          class="alert alert-danger"
+          role="alert"
+        >
+          <span>{{ erro }}</span>
+        </div>
+      </div>
+    </div>
+    <div class="mb-3">
+      <label for="imagem" class="form-label">Imagem url</label>
+      <input
+        type="url"
+        class="input-form form-control"
+        id="imagem"
+        formControlName="imagem"
+      />
+      <div *ngIf="verificateValidTouched('imagem')">
+        <div
+          *ngFor="let erro of getErrors('imagem')"
+          class="alert alert-danger"
+          role="alert"
+        >
+          <span>{{ erro }}</span>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+
+<div class="modal-footer">
+  <button type="submit" class="btn btn-primary" (click)="onSubmit()">
+    Cadastrar
+  </button>
+  <button
+    type="button"
+    class="btn btn-outline-dark"
+    (click)="activeModal.close('Close click')"
+  >
+    Close
+  </button>
+</div>

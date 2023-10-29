@@ -1,0 +1,181 @@
+form {
+  margin-top: 1rem;
+  display: flex;
+  align-items: end;
+  gap: 1rem;
+
+  .form-group {
+    width: 300px !important;
+  }
+
+  .botoes {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 2rem;
+
+  .card-items {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1rem;
+    margin-top: 2rem;
+
+    a {
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    .card {
+      height: 236px;
+      width: 220px;
+
+      .card-header{
+        max-height: 50px;
+
+        h5{
+          white-space: nowrap;
+          max-width: 100%;
+          overflow: hidden;
+        }
+      }
+
+      .card-body {
+        display: flex;
+        justify-content: center;
+
+        .card-img {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+
+          img {
+            height: 100px;
+            width: 100px;
+          }
+        }
+      }
+
+      .card-footer {
+        display: flex;
+        justify-content: center;
+        background: whitesmoke;
+
+        span {
+          width: 60%;
+          color: white;
+        }
+      }
+    }
+
+    .card:hover{
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      scale: 105%;
+    }
+  }
+}
+
+button {
+  margin-bottom: 0;
+}
+
+.foto-alerta {
+  max-height: 20px;
+}
+
+@media screen and (max-width: 610px) {
+  form {
+    flex-direction: column;
+    align-items: start;
+  }
+
+  .container .card-items {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media screen and (max-width: 510px) {
+  .header {
+    justify-content: center;
+  }
+  form {
+    flex-direction: column;
+    align-items: center;
+
+    .botoes {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+    }
+  }
+
+  .container .card-items {
+    grid-template-columns: 1fr;
+    justify-items: center;
+  }
+
+  .card {
+    min-height: 240px;
+    min-width: 220px;
+  }
+}
+
+.agua{
+  background-color: #6890f0;
+}
+.fogo {
+  background-color: #f05030;
+}
+.grama {
+  background-color: #78c850;
+}
+.eletrico {
+  background-color: #f8d030;
+}
+.psiquico {
+  background-color: #f85888;
+}
+.gelo {
+  background-color: #98d8d8;
+}
+.dragao {
+  background-color: #7038f8;
+}
+.sombrio {
+  background-color: #705848;
+}
+.normal {
+  background-color: #a8a878;
+}
+.lutador {
+  background-color: #903028;
+}
+.voador {
+  background-color: #a890f0;
+}
+.veneno {
+  background-color: #a040a0;
+}
+.terra {
+  background-color: #e0c068;
+}
+.pedra {
+  background-color: #b8a038;
+}
+.fada {
+  background-color: #f5d6fa;
+}
+.fantasma {
+  background-color: #705898;
+}
+.ferro {
+  background-color: #b8b8d0;
+}
+.inseto {
+  background-color: #68a090;
+}

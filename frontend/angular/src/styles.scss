@@ -1,3 +1,11 @@
+html,
+body {
+  height: 100%;
+}
 
-/* Importing Bootstrap SCSS file. */
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
 @import 'bootstrap/scss/bootstrap';
