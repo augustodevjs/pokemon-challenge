@@ -1,6 +1,6 @@
-import { AddPokemonInputModel, AddPokemonViewModel, FormPokemonAddInputModel, FormPokemonInputModel, PokemonViewModel, UpdatePokemonInputModel, UpdatePokemonViewModel } from "..";
+import { AddPokemonInputModel, AddPokemonViewModel, FormPokemonInputModel, PokemonViewModel, UpdatePokemonInputModel, UpdatePokemonViewModel } from "..";
 
-export const FormPokemonToAddPokemon = (pokemon: FormPokemonAddInputModel): AddPokemonInputModel => {
+export const FormPokemonToAddPokemon = (pokemon: FormPokemonInputModel): AddPokemonInputModel => {
   return {
     nome: pokemon.nome,
     descricao: pokemon.descricao,
@@ -9,7 +9,7 @@ export const FormPokemonToAddPokemon = (pokemon: FormPokemonAddInputModel): AddP
   }
 }
 
-export const FormPokemonAddToPokemonViewModel = (pokemon: AddPokemonViewModel, form: FormPokemonAddInputModel): PokemonViewModel => {
+export const FormPokemonAddToPokemonViewModel = (pokemon: AddPokemonViewModel, form: FormPokemonInputModel): PokemonViewModel => {
   return {
     id: pokemon.id,
     descricao: pokemon.descricao,

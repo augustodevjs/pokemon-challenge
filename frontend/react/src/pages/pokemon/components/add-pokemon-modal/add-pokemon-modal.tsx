@@ -3,7 +3,7 @@ import { FaPlus } from "react-icons/fa";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { Dispatch, SetStateAction, useState } from "react";
 import { FormProvider, SubmitHandler, useForm } from "react-hook-form";
-import { Alert, Button, FormPokemonAddInputModel, Modal, ModalProps, PokemonMapper, PokemonService, PokemonViewModel, ValidationError, pokemonValidator } from "../../../../shared";
+import { Alert, Button, FormPokemonInputModel, Modal, ModalProps, PokemonMapper, PokemonService, PokemonViewModel, ValidationError, pokemonValidator } from "../../../../shared";
 
 type Props = Pick<ModalProps, 'isOpen' | 'onRequestClose'> & {
   setData: Dispatch<SetStateAction<PokemonViewModel[]>>;
@@ -16,7 +16,7 @@ export const AddPokemonModal: React.FC<Props> = ({
 }) => {
   const [isLoading, setIsLoading] = useState(false);
 
-  const form = useForm<FormPokemonAddInputModel>({
+  const form = useForm<FormPokemonInputModel>({
     mode: 'onChange',
     resolver: yupResolver(pokemonValidator),
   });
@@ -24,7 +24,7 @@ export const AddPokemonModal: React.FC<Props> = ({
   const submitButton = (
     <Button
       type="submit"
-      // disabled={!form.formState.isValid}
+      disabled={!form.formState.isValid}
       form="add-pokemon-form"
       variant="primary"
       isLoading={isLoading}
@@ -33,7 +33,7 @@ export const AddPokemonModal: React.FC<Props> = ({
     </Button>
   );
 
-  const onSuccess = async (data: FormPokemonAddInputModel) => {
+  const onSuccess = async (data: FormPokemonInputModel) => {
     const toResponse = PokemonMapper.FormPokemonToAddPokemon(data);
     const response = await PokemonService.add({ data: toResponse });
 
@@ -65,7 +65,7 @@ export const AddPokemonModal: React.FC<Props> = ({
     }
   };
 
-  const onSubmit: SubmitHandler<FormPokemonAddInputModel> = async (data) => {
+  const onSubmit: SubmitHandler<FormPokemonInputModel> = async (data) => {
     setIsLoading(true);
 
     try {

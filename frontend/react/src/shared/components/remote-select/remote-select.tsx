@@ -1,6 +1,6 @@
+import { Theme } from 'react-select'
 import AsyncSelect from 'react-select/async'
 import { HttpClient, RemoteSelectProps, SelectWrapper, withBaseInput } from '../..'
-import { Theme } from 'react-select'
 
 const RemoteSelect: React.FC<RemoteSelectProps> = ({
   apiConfig,
