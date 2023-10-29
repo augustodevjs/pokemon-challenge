@@ -84,7 +84,6 @@ export const Pokemon = () => {
         <S.Search>
           <div className="filter">
             <Select
-              isClearable
               options={pokemonTipoOptions}
               value={selectedValuePokemonTipo}
               onChange={setSelectedValuePokemonTipo}

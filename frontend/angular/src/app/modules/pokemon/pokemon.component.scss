@@ -145,6 +145,30 @@
     form {
       display: flex;
       flex-direction: column;
+
+      button {
+        width: 100%;
+      }
+      
+      .form-group {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        select {
+          width: 100% !important;
+        }
+
+        .group-button {
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+          button {
+            width: 100%;
+          }
+        }
+      }
     }
   }
 }
