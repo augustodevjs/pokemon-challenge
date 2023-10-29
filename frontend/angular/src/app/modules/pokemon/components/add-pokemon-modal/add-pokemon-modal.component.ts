@@ -1,11 +1,12 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { NgForOf, NgIf } from '@angular/common';
-import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
-import { AddPokemonInputModel, PokemonTipoViewModel } from 'src/app/shared/domain-types';
 import Swal from 'sweetalert2'
-import { PokemonService, PokemonTipoService } from 'src/app/shared/services';
+import { NgForOf, NgIf } from '@angular/common';
 import { HttpErrorResponse } from '@angular/common/http';
+import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+
+import { PokemonService, PokemonTipoService } from '../../../../shared/services';
+import { AddPokemonInputModel, PokemonTipoViewModel } from '../../../../shared/domain-types';
 
 @Component({
   selector: 'app-add-pokemon-modal',

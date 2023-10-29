@@ -8,7 +8,6 @@ export interface PokemonViewModel {
   pokemonTipo: PokemonTipoViewModel;
 }
 
-// Add Pokemon
 export interface AddPokemonInputModel {
   pokemonTipoId: number;
   nome: string;
@@ -24,7 +23,6 @@ export interface AddPokemonViewModel {
   descricao: string;
 }
 
-// Update Pokemon
 export interface UpdatePokemonInputModel {
   id: number;
   pokemonTipoId: number;

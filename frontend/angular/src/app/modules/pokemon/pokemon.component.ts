@@ -1,10 +1,12 @@
 import Swal from "sweetalert2";
 import { Component, OnInit } from '@angular/core';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { HttpErrorResponse } from '@angular/common/http';
+
 import { PokemonService, PokemonTipoService } from '../../shared/services';
 import { PokemonTipoViewModel, PokemonViewModel } from '../../shared/domain-types';
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { HttpErrorResponse } from '@angular/common/http';
+
 import { AddPokemonModalComponent } from "./components/add-pokemon-modal/add-pokemon-modal.component";
 import { EditPokemonModalComponent } from "./components/edit-pokemon-modal/edit-pokemon-modal.component";
 

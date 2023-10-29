@@ -1,11 +1,12 @@
+import Swal from "sweetalert2";
 import { NgForOf, NgIf } from '@angular/common';
+import { HttpErrorResponse } from '@angular/common/http';
+import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import Swal from "sweetalert2";
-import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
-import { PokemonTipoViewModel, PokemonViewModel, UpdatePokemonInputModel } from 'src/app/shared/domain-types';
-import { PokemonService, PokemonTipoService } from 'src/app/shared/services';
-import { HttpErrorResponse } from '@angular/common/http';
+
+import { PokemonService, PokemonTipoService } from '../../../../shared/services';
+import { PokemonTipoViewModel, PokemonViewModel, UpdatePokemonInputModel } from '../../../../shared/domain-types';
 
 @Component({
   selector: 'app-details',
