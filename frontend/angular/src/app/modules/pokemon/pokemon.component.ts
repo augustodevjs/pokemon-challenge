@@ -57,7 +57,9 @@ export class PokemonComponent implements OnInit {
   }
 
   open() {
-    const modalRef = this.modal.open(RegisterComponent);
+    const modalRef = this.modal.open(RegisterComponent, {
+      backdrop: 'static'
+    });
     modalRef.componentInstance.cadastroSucessoEnviado.subscribe((success: boolean) => {
       if (success) {
         this.getPokemons();

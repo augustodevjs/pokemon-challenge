@@ -51,10 +51,17 @@ export class RegisterComponent implements OnInit {
             position: 'center',
             icon: 'success',
             title: 'Pokemón cadastrado com sucesso!',
-            showConfirmButton: false,
-            timer: 1500
+            showConfirmButton: true,
+            returnFocus: false,
+            customClass: {
+              popup: 'popup-sweet-alert-background',
+              title: 'title-sweet-alert',
+              confirmButton: 'confirm-button-sweet-alert',
+              htmlContainer: 'html-sweet-alert',
+            },
           })
           this.form.reset();
+          this.form.controls['pokemontipo'].setValue('');
           this.cadastroSucessoEnviado.emit(true);
         },
 
@@ -116,9 +123,9 @@ export class RegisterComponent implements OnInit {
   private initForm() {
     this.form = this.formBuilder.group({
       nome: [null, [Validators.required, Validators.minLength(3), Validators.maxLength(120)]],
-      pokemontipo: [null, [Validators.required]],
+      pokemontipo: ['', [Validators.required]],
       descricao: [null, [Validators.required, Validators.minLength(3), Validators.maxLength(250)]],
-      imagem: []
+      imagem: [null, [Validators.required, Validators.minLength(3), Validators.maxLength(120)]]
     })
   }
 }
