@@ -3,6 +3,29 @@
   margin: 0 auto;
   padding: 2rem;
 
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  
+    .content {
+      display: flex;
+  
+      .content-text {
+        h1 {
+          font-size: 2rem;
+          margin-bottom: 0;
+        }
+  
+        p {
+          font-size: 1rem;
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+  
+
   form {
     margin: 1rem 0 1.5rem 0;
     display: flex;

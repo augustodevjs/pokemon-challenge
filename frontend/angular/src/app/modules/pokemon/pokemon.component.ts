@@ -18,7 +18,6 @@ export class PokemonComponent implements OnInit {
   formFilter!: FormGroup;
   pokemons: PokemonViewModel[] = [];
   pokemonTipos: PokemonTipoViewModel[] = [];
-  text: string = "Listagem de Pokemons";
 
   constructor(
     private modal: NgbModal,
@@ -56,7 +55,7 @@ export class PokemonComponent implements OnInit {
     }
   }
 
-  open() {
+  openAddModal() {
     const modalRef = this.modal.open(AddPokemonModalComponent, {
       backdrop: 'static'
     });
@@ -67,7 +66,7 @@ export class PokemonComponent implements OnInit {
     });
   }
 
-  openDetailsModal(id: number) {
+  openEditModal(id: number) {
     const modalRef = this.modal.open(EditPokemonModalComponent);
     modalRef.componentInstance.pokemonId = this.pokemonId = id;
     modalRef.componentInstance.updateSucessoEnviado.subscribe((success: boolean) => {
@@ -125,7 +124,7 @@ export class PokemonComponent implements OnInit {
       })
   }
 
-  private searchPokemonByType(tipo: number) {
+  searchPokemonByType(tipo: number) {
     this.sercvicePokemon.getAllByPokemonType(tipo).subscribe({
       next: value => {
         return this.pokemons = value;
@@ -136,10 +135,10 @@ export class PokemonComponent implements OnInit {
     });
   }
 
-  private getPokemonsTipos() {
-    this.servicePokemonTipo.getAll().subscribe({
+  getPokemons() {
+    this.sercvicePokemon.getAll().subscribe({
       next: value => {
-        this.pokemonTipos = value;
+        this.pokemons = value;
       },
       error: err => {
         console.log(err)
@@ -147,10 +146,10 @@ export class PokemonComponent implements OnInit {
     });
   }
 
-  private getPokemons() {
-    this.sercvicePokemon.getAll().subscribe({
+  getPokemonsTipos() {
+    this.servicePokemonTipo.getAll().subscribe({
       next: value => {
-        this.pokemons = value;
+        this.pokemonTipos = value;
       },
       error: err => {
         console.log(err)

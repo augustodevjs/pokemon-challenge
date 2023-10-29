@@ -1,5 +1,11 @@
 <div class="container">
-  <app-header [mensagem]="text"></app-header>
+  <div class="header">
+    <div class="content">
+      <div class="content-text">
+        <h1>Listagem de Pokemons</h1>
+      </div>
+    </div>
+  </div>
 
   <form [formGroup]="formFilter" (ngSubmit)="filter()">
     <div class="form-group">
@@ -29,7 +35,7 @@
         </button>
       </div>
     </div>
-    <button class="btn btn-success" (click)="open()">Novo</button>
+    <button class="btn btn-success" (click)="openAddModal()">Novo</button>
   </form>
 
   <div class="card-items">
@@ -43,10 +49,7 @@
             Tipo do Pokemon: {{ pokemon.pokemonTipo.nome }}
           </div>
           <div class="actions">
-            <button
-              class="btn btn-success"
-              (click)="openDetailsModal(pokemon.id)"
-            >
+            <button class="btn btn-success" (click)="openEditModal(pokemon.id)">
               Editar
             </button>
 
