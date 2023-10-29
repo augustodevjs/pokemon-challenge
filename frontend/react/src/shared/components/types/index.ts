@@ -4,9 +4,11 @@ import {
   ButtonHTMLAttributes,
   ComponentType,
   InputHTMLAttributes,
+  PropsWithChildren,
   ReactNode,
   TextareaHTMLAttributes,
 } from 'react';
+import { ApiConfig } from '../..';
 
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   transparent?: boolean;
@@ -72,4 +74,31 @@ export type CardPokemonProps = {
 
 export type HeaderProps = {
   onAdd: () => void
+}
+
+export type WithBaseInputProps = {
+  label?: string
+  tooltip?: string
+  isRequired?: boolean
+  error?: string
+  required?: boolean
+  variant?: 'primary' | 'secondary'
+}
+
+export type Queries = Record<string, string | number | boolean | undefined>
+
+export type SelectWrapperProps = PropsWithChildren & {
+  isInvalid: boolean
+  variant?: string
+}
+
+export type SelectInterfaceProps = ReactSelectProps<SelectOption | any> &
+  WithBaseInputProps
+
+export type RemoteSelectProps = SelectInterfaceProps & {
+  apiConfig: ApiConfig
+  endpoint?: string
+  queries?: Queries
+  searchKey?: string
+  getOptions?: (body: unknown) => Array<unknown>
 }

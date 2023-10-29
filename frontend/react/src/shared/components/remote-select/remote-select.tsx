@@ -1,57 +1,5 @@
 import AsyncSelect from 'react-select/async'
-import { Props as ReactSelectProps } from 'react-select'
-import { ComponentType, PropsWithChildren } from 'react'
-import { ApiConfig, HttpClient, SelectOption } from '../..'
-import * as S from './styles'
-
-type WithBaseInputProps = {
-  label?: string
-  tooltip?: string
-  isRequired?: boolean
-  error?: string
-  required?: boolean
-  variant?: 'primary' | 'secondary'
-}
-
-type Queries = Record<string, string | number | boolean | undefined>
-
-export type SelectProps = ReactSelectProps<SelectOption | any> &
-  WithBaseInputProps
-
-type RemoteSelectProps = SelectProps & {
-  apiConfig: ApiConfig
-  endpoint?: string
-  queries?: Queries
-  searchKey?: string
-  getOptions?: (body: unknown) => Array<unknown>
-}
-
-type Props = PropsWithChildren & {
-  isInvalid: boolean
-  variant?: string
-}
-
-const SelectWrapper: React.FC<Props> = ({ children, isInvalid, variant }) => {
-  return <S.Wrapper isInvalid={isInvalid} variant={variant}>{children}</S.Wrapper>
-}
-
-const withBaseInput = <T,>(Component: ComponentType<T>) => {
-  return (props: T & WithBaseInputProps) => {
-    return (
-      <>
-        {props.label && (
-          <label>
-            {props.label}
-          </label>
-        )}
-        <Component {...props} />
-        {props.error !== undefined && (
-          <form className="text-danger">{props.error}</form>
-        )}
-      </>
-    )
-  }
-}
+import { HttpClient, RemoteSelectProps, SelectWrapper, withBaseInput } from '../..'
 
 const RemoteSelect: React.FC<RemoteSelectProps> = ({
   apiConfig,
