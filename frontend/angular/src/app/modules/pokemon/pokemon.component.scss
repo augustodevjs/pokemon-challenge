@@ -1,181 +1,124 @@
-form {
-  margin-top: 1rem;
-  display: flex;
-  align-items: end;
-  gap: 1rem;
-
-  .form-group {
-    width: 300px !important;
-  }
-
-  .botoes {
-    display: flex;
-    justify-content: space-between;
-    gap: 1rem;
-  }
-}
-
 .container {
   max-width: 1000px;
   margin: 0 auto;
   padding: 2rem;
 
-  .card-items {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 1rem;
-    margin-top: 2rem;
+  form {
+    margin: 1rem 0 1.5rem 0;
+    display: flex;
+    justify-content: space-between;
+    gap: 1.5rem;
 
-    a {
-      cursor: pointer;
-      text-decoration: none;
-    }
+    .form-group {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
 
-    .card {
-      height: 236px;
-      width: 220px;
-
-      .card-header{
-        max-height: 50px;
-
-        h5{
-          white-space: nowrap;
-          max-width: 100%;
-          overflow: hidden;
-        }
+      select {
+        width: 350px !important;
+        padding: 0.5rem;
       }
 
-      .card-body {
+      .group-button {
         display: flex;
-        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+      }
+    }
+  }
 
-        .card-img {
+  .card-items  {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1.5rem;
+    
+    .card {
+      border: none ;
+
+      img {
+        width: 100%;
+        object-fit: cover;
+      }
+
+      .content {
+        background-color: rgb(41,41,46);
+        padding: 1rem;
+        color: white;
+
+        .name {
+          font-weight: 400;
+          font-size: 1.5rem;
+          line-height: 1.334;
+        }
+
+        .description {
+          font-weight: 400;
+          font-size: 0.875rem;
+          color: rgba(255,255,255,0.7);
+          margin-top: 0.3rem;
+        }
+
+        .tipo {
+          font-size: .875rem;
+          color: rgba(255,255,255,0.7);
+          margin-top: 0.3rem;
+          margin-bottom: 0.75rem;
+        }
+
+        .actions {
           display: flex;
-          justify-content: center;
-          align-items: center;
+          gap: 0.5rem;
 
-          img {
-            height: 100px;
+          button {
             width: 100px;
           }
         }
       }
+    }
+  }
 
-      .card-footer {
-        display: flex;
-        justify-content: center;
-        background: whitesmoke;
+  .not-exist-pokemons {
+    background-color: #29292e;
+    padding: 1.5rem;
+    text-align: center;
+    color: #e1e1e6;
+    width: 100%;
+  }
 
-        span {
-          width: 60%;
-          color: white;
+  @media(max-width: 830px) {
+    .card-items {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    form {
+      .form-group {
+        select {
+          width: 250px !important;
         }
       }
     }
+  }
 
-    .card:hover{
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-      scale: 105%;
+  @media(max-width: 590px) {
+    .card-items {
+      grid-template-columns: 1fr;
     }
   }
-}
 
-button {
-  margin-bottom: 0;
-}
-
-.foto-alerta {
-  max-height: 20px;
-}
-
-@media screen and (max-width: 610px) {
-  form {
-    flex-direction: column;
-    align-items: start;
+  @media(max-width: 740px) {
+    form {
+      .form-group {
+        select {
+          width: 200px !important;
+        }
+      }
+    }
   }
 
-  .container .card-items {
-    grid-template-columns: 1fr 1fr;
-  }
-}
-
-@media screen and (max-width: 510px) {
-  .header {
-    justify-content: center;
-  }
-  form {
-    flex-direction: column;
-    align-items: center;
-
-    .botoes {
+  @media(max-width: 680px) {
+    form {
       display: flex;
-      justify-content: center;
-      gap: 2rem;
+      flex-direction: column;
     }
   }
-
-  .container .card-items {
-    grid-template-columns: 1fr;
-    justify-items: center;
-  }
-
-  .card {
-    min-height: 240px;
-    min-width: 220px;
-  }
-}
-
-.agua{
-  background-color: #6890f0;
-}
-.fogo {
-  background-color: #f05030;
-}
-.grama {
-  background-color: #78c850;
-}
-.eletrico {
-  background-color: #f8d030;
-}
-.psiquico {
-  background-color: #f85888;
-}
-.gelo {
-  background-color: #98d8d8;
-}
-.dragao {
-  background-color: #7038f8;
-}
-.sombrio {
-  background-color: #705848;
-}
-.normal {
-  background-color: #a8a878;
-}
-.lutador {
-  background-color: #903028;
-}
-.voador {
-  background-color: #a890f0;
-}
-.veneno {
-  background-color: #a040a0;
-}
-.terra {
-  background-color: #e0c068;
-}
-.pedra {
-  background-color: #b8a038;
-}
-.fada {
-  background-color: #f5d6fa;
-}
-.fantasma {
-  background-color: #705898;
-}
-.ferro {
-  background-color: #b8b8d0;
-}
-.inseto {
-  background-color: #68a090;
 }

@@ -12,4 +12,9 @@ body {
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
+button {
+  width: 120px;
+  padding: 0.5rem;
+}
+
 @import 'bootstrap/scss/bootstrap';

@@ -1,4 +1,4 @@
-import * as _ from 'lodash';
+import Swal from "sweetalert2";
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { PokemonService, PokemonTipoService } from '../../shared/services';
@@ -6,6 +6,7 @@ import { PokemonTipoViewModel, PokemonViewModel } from '../../shared/domain-type
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { RegisterComponent } from './components/register/register.component';
 import { DetailsComponent } from './components/details/details.component';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-pokemon',
@@ -17,7 +18,7 @@ export class PokemonComponent implements OnInit {
   formFilter!: FormGroup;
   pokemons: PokemonViewModel[] = [];
   pokemonTipos: PokemonTipoViewModel[] = [];
-  valorHeader: string = "Bem vindo treinador!";
+  text: string = "Listagem de Pokemons";
 
   constructor(
     private modal: NgbModal,
@@ -34,8 +35,8 @@ export class PokemonComponent implements OnInit {
 
   private getFormSearch() {
     this.formFilter = this.formBuilder.group({
-      nome: [null],
-      pokemontipo: [null],
+      nome: [''],
+      pokemontipo: [''],
     })
   }
 
@@ -47,14 +48,12 @@ export class PokemonComponent implements OnInit {
     this.searchPokemonByType(buscar.pokemontipoid);
   }
 
-  formatarTexto(texto: string): string {
-    const textoSemAcentos = _.deburr(texto);
-    return textoSemAcentos.toLowerCase();
-  }
-
   clearFilter() {
-    this.formFilter.reset();
-    this.getPokemons();
+    if (this.formFilter.controls['pokemontipo'].value) {
+      this.formFilter.reset();
+      this.formFilter.controls['pokemontipo'].setValue('');
+      this.getPokemons();
+    }
   }
 
   open() {
@@ -79,6 +78,38 @@ export class PokemonComponent implements OnInit {
         this.getPokemons();
       }
     });
+  }
+
+  removePokemon(id: number) {
+    Swal.fire({
+      title: 'Você tem certeza?',
+      text: "O pokemón será removido permanentemente!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Sim!'
+    })
+      .then((result) => {
+        if (result.isConfirmed) {
+          this.sercvicePokemon.remove(id).subscribe({
+            next: () => {
+              this.getPokemons();
+              Swal.fire(
+                {
+                  title: 'Removido!',
+                  text: 'Seu pokémon foi removido.',
+                  icon: 'success',
+                  showConfirmButton: true
+                }
+              )
+            },
+            error: (err: HttpErrorResponse) => {
+              console.error(err);
+            }
+          });
+        }
+      })
   }
 
   private searchPokemonByType(tipo: number) {
@@ -106,7 +137,6 @@ export class PokemonComponent implements OnInit {
   private getPokemons() {
     this.sercvicePokemon.getAll().subscribe({
       next: value => {
-        console.log(value)
         this.pokemons = value;
       },
       error: err => {

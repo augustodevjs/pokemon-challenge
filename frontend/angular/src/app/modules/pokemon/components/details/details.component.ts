@@ -38,7 +38,6 @@ export class DetailsComponent implements OnInit {
     this.initForm();
   }
 
-
   onSubmit() {
     if (this.form.valid) {
       const pokemon: UpdatePokemonInputModel = {
@@ -146,38 +145,5 @@ export class DetailsComponent implements OnInit {
     } else {
       console.log('Pokemon não encontrado');
     }
-  }
-
-  removePokemon() {
-    Swal.fire({
-      title: 'Você tem certeza?',
-      text: "O pokemón será removido permanentemente!",
-      icon: 'warning',
-      showCancelButton: true,
-      confirmButtonColor: '#3085d6',
-      cancelButtonColor: '#d33',
-      confirmButtonText: 'Sim!'
-    })
-      .then((result) => {
-        if (result.isConfirmed) {
-          this.pokemonService.remove(this.pokemonId).subscribe({
-            next: () => {
-              this.removeSucessoEnviado.emit(true);
-              this.activeModal.close();
-              Swal.fire(
-                {
-                  title: 'Removido!',
-                  text: 'Seu pokémon foi removido.',
-                  icon: 'success',
-                  showConfirmButton: true
-                }
-              )
-            },
-            error: (err: HttpErrorResponse) => {
-              console.error(err);
-            }
-          });
-        }
-      })
   }
 }
