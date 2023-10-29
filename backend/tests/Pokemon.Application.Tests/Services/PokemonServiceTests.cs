@@ -84,6 +84,49 @@ public class PokemonServiceTests : BaseServiceTest, IClassFixture<ServicesFixtur
 
     #endregion
 
+    #region getAllByPokemonTipo
+
+    [Fact]
+    public async Task GetAllByPokemonTipo_PokemonExistent_ReturnPokemonViewModel()
+    {
+        // Arrange
+        SetupMocks();
+
+        // Act
+        var pokemonService = await _pokemonService.GetAllByPokemonTipo(1);
+
+        // Assert
+        using (new AssertionScope())
+        {
+            NotFound.Should().BeFalse();
+            pokemonService.Should().NotBeNull();
+            pokemonService.Should().BeOfType<List<PokemonViewModel>>();
+            NotificatorMock.Verify(c => c.HandleNotFoundResource(), Times.Never);
+            _pokemonRepositoryMock.Verify(c => c.getPokemonsByPokemonTipo(It.IsAny<int>()), Times.Once);
+        }
+    }
+
+    [Fact]
+    public async Task GetAllByPokemonTipo_PokemonNotExistent_ReturnNotFoundResource()
+    {
+        // Arrange
+        SetupMocks();
+    
+        // Act
+        var pokemonService = await _pokemonService.GetAllByPokemonTipo(99);
+    
+        // Assert
+        using (new AssertionScope())
+        {
+            pokemonService.Should().BeNull();
+            NotFound.Should().BeTrue();
+            NotificatorMock.Verify(c => c.HandleNotFoundResource(), Times.Once);
+            _pokemonRepositoryMock.Verify(c => c.getPokemonsByPokemonTipo(It.IsAny<int>()), Times.Never);
+        }
+    }
+
+    #endregion
+
     #region create
 
     [Fact]
