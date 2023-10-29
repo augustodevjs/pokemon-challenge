@@ -117,3 +117,5 @@ m
 0src/Pokemon.API/Controllers/PokemonController.cs,6\5\6519d8c46d70e90ce884cb33b7e882db68b64dfa
 d
 4src/Pokemon.API/Controllers/PokemonTipoController.cs,1\8\18c1a2c6a12ff0fb4605cdb866ee890b94839ca1
+Œ
+\src/Pokemon.Domain/obj/Debug/net7.0/Pokemon.Domain.GeneratedMSBuildEditorConfig.editorconfig,a\f\af297b864fd44d8067a4546bd7b49c8395e5beae

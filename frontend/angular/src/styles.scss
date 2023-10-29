@@ -1,10 +1,14 @@
-html,
-body {
-  height: 100%;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
   margin: 0;
+  background-color: #202024 !important;
+  color: #E1E1E6 !important;
+  -webkit-font-smoothing: antialiased;
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
