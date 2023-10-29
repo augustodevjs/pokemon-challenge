@@ -34,8 +34,17 @@ export class AddPokemonModalComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.setupForm();
     this.getPokemonsTipos();
-    this.initForm();
+  }
+
+  setupForm() {
+    this.form = this.formBuilder.group({
+      nome: [null, [Validators.required, Validators.minLength(3), Validators.maxLength(120)]],
+      pokemontipo: ['', [Validators.required]],
+      descricao: [null, [Validators.required, Validators.minLength(3), Validators.maxLength(250)]],
+      imagem: [null, [Validators.required, Validators.minLength(3), Validators.maxLength(120)]]
+    })
   }
 
   onSubmit() {
@@ -72,35 +81,30 @@ export class AddPokemonModalComponent implements OnInit {
         },
 
         error: (err: HttpErrorResponse) => {
-          console.log(err);
+          Swal.fire({
+            position: 'center',
+            icon: 'error',
+            text: `${err.error.erros[0]}`,
+            title: `${err.error.title}`,
+            showConfirmButton: true,
+            returnFocus: false,
+            customClass: {
+              popup: 'popup-sweet-alert-background',
+              title: 'title-sweet-alert',
+              confirmButton: 'confirm-button-sweet-alert',
+              htmlContainer: 'html-sweet-alert',
+            },
+          }).then((result) => {
+            if (result.isConfirmed) {
+              this.form.reset();
+              this.form.controls['pokemontipo'].setValue('');
+            }
+          })
         }
       });
     } else {
-      this.verificateValidationErros(this.form);
+      this.verificateValidationErros();
     }
-  }
-
-  private verificateValidationErros(formGroup: FormGroup) {
-    Object.keys(this.form.controls).forEach((campo) => {
-      const controle = this.form.get(campo);
-      if (controle instanceof FormGroup) {
-        controle?.markAsDirty();
-        this.verificateValidationErros(controle)
-      } else {
-        controle?.markAsDirty();
-      }
-    });
-  }
-
-  private getPokemonsTipos() {
-    this.pokemonTiposService.getAll().subscribe({
-      next: value => {
-        this.pokemonTipos = value;
-      },
-      error: err => {
-        console.log(err)
-      }
-    });
   }
 
   verificateValidTouched(campo: string) {
@@ -126,12 +130,23 @@ export class AddPokemonModalComponent implements OnInit {
     return errors;
   }
 
-  private initForm() {
-    this.form = this.formBuilder.group({
-      nome: [null, [Validators.required, Validators.minLength(3), Validators.maxLength(120)]],
-      pokemontipo: ['', [Validators.required]],
-      descricao: [null, [Validators.required, Validators.minLength(3), Validators.maxLength(250)]],
-      imagem: [null, [Validators.required, Validators.minLength(3), Validators.maxLength(120)]]
-    })
+  private verificateValidationErros() {
+    Object.keys(this.form.controls).forEach((campo) => {
+      const controle = this.form.get(campo);
+      if (controle instanceof FormGroup) {
+        controle?.markAsDirty();
+        this.verificateValidationErros()
+      } else {
+        controle?.markAsDirty();
+      }
+    });
+  }
+
+  private getPokemonsTipos() {
+    this.pokemonTiposService.getAll().subscribe({
+      next: value => {
+        this.pokemonTipos = value;
+      },
+    });
   }
 }

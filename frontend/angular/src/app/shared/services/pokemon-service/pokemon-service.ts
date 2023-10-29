@@ -41,40 +41,6 @@ export class PokemonService extends BaseService {
     return this.httpClient.delete<void>(url);
   }
 
-  errorHandlingGetAll(response: HttpErrorResponse): string[] {
-    switch (response.status) {
-      default:
-        throw new UnexpectedError();
-    }
-  }
-
-  errorHandlingLoadById(response: HttpErrorResponse): string[] {
-    switch (response.status) {
-      case HttpStatusCode.NotFound:
-        throw new NotFoundError();
-      default:
-        throw new UnexpectedError();
-    }
-  }
-
-  errorHandlingGetAllByPokemonType(response: HttpErrorResponse): string[] {
-    switch (response.status) {
-      case HttpStatusCode.NotFound:
-        throw new NotFoundError();
-      default:
-        throw new UnexpectedError();
-    }
-  }
-
-  errorHandlingRemove(response: HttpErrorResponse): string[] {
-    switch (response.status) {
-      case HttpStatusCode.BadRequest:
-        throw new ValidationError(response.error)
-      default:
-        throw new UnexpectedError();
-    }
-  }
-
   errorHandlingAdd(response: HttpErrorResponse): string[] {
     switch (response.status) {
       case HttpStatusCode.BadRequest:

@@ -22,8 +22,8 @@ import { PokemonTipoViewModel, PokemonViewModel, UpdatePokemonInputModel } from 
 export class EditPokemonModalComponent implements OnInit {
   form!: FormGroup;
   pokemon!: PokemonViewModel;
-  pokemonTipo!: PokemonTipoViewModel[];
   @Input() pokemonId!: number;
+  pokemonTipo!: PokemonTipoViewModel[];
   @Output() updateSucessoEnviado: EventEmitter<boolean> = new EventEmitter<boolean>();
   @Output() removeSucessoEnviado: EventEmitter<boolean> = new EventEmitter<boolean>();
 
@@ -36,8 +36,25 @@ export class EditPokemonModalComponent implements OnInit {
 
   ngOnInit(): void {
     this.getPokemonTipos();
-    this.initForm();
+    this.setupForm();
   }
+
+  private setupForm() {
+    this.form = this.formBuilder.group({
+      nome: [null, [Validators.required, Validators.minLength(3), Validators.maxLength(120)]],
+      pokemontipo: [null, [Validators.required]],
+      descricao: [null, [Validators.required, Validators.minLength(3), Validators.maxLength(250)]],
+      imagem: []
+    });
+
+    this.pokemonService.loadById(this.pokemonId).subscribe({
+      next: value => {
+        this.pokemon = value;
+        this.iniciateFormPokemon();
+      },
+    });
+  }
+
 
   onSubmit() {
     if (this.form.valid) {
@@ -71,24 +88,30 @@ export class EditPokemonModalComponent implements OnInit {
           });
         },
         error: (err: HttpErrorResponse) => {
-          console.error(err);
+          Swal.fire({
+            position: 'center',
+            icon: 'error',
+            text: `${err.error.erros[0]}`,
+            title: `${err.error.title}`,
+            showConfirmButton: true,
+            returnFocus: false,
+            customClass: {
+              popup: 'popup-sweet-alert-background',
+              title: 'title-sweet-alert',
+              confirmButton: 'confirm-button-sweet-alert',
+              htmlContainer: 'html-sweet-alert',
+            },
+          }).then((result) => {
+            if (result.isConfirmed) {
+              this.form.reset();
+              this.form.controls['pokemontipo'].setValue('');
+            }
+          })
         }
       });
     } else {
-      this.verificateValidationErros(this.form);
+      this.verificateValidationErros();
     }
-  }
-
-  private verificateValidationErros(formGroup: FormGroup) {
-    Object.keys(this.form.controls).forEach((campo) => {
-      const controle = this.form.get(campo);
-      if (controle instanceof FormGroup) {
-        controle?.markAsDirty();
-        this.verificateValidationErros(controle)
-      } else {
-        controle?.markAsDirty();
-      }
-    });
   }
 
   verificateValidTouched(campo: string) {
@@ -114,33 +137,23 @@ export class EditPokemonModalComponent implements OnInit {
     return errors;
   }
 
-  protected getPokemonTipos() {
-    this.pokemonTipoService.getAll().subscribe({
-      next: value => {
-        this.pokemonTipo = value;
-      },
-      error: err => {
-        console.log(err)
+  private verificateValidationErros() {
+    Object.keys(this.form.controls).forEach((campo) => {
+      const controle = this.form.get(campo);
+      if (controle instanceof FormGroup) {
+        controle?.markAsDirty();
+        this.verificateValidationErros()
+      } else {
+        controle?.markAsDirty();
       }
     });
   }
 
-  private initForm() {
-    this.form = this.formBuilder.group({
-      nome: [null, [Validators.required, Validators.minLength(3), Validators.maxLength(120)]],
-      pokemontipo: [null, [Validators.required]],
-      descricao: [null, [Validators.required, Validators.minLength(3), Validators.maxLength(250)]],
-      imagem: []
-    });
-
-    this.pokemonService.loadById(this.pokemonId).subscribe({
+  private getPokemonTipos() {
+    this.pokemonTipoService.getAll().subscribe({
       next: value => {
-        this.pokemon = value;
-        this.iniciateFormPokemon();
+        this.pokemonTipo = value;
       },
-      error: err => {
-        console.log(err)
-      }
     });
   }
 
@@ -152,8 +165,6 @@ export class EditPokemonModalComponent implements OnInit {
         descricao: this.pokemon.descricao,
         imagem: this.pokemon.imagemUrl
       });
-    } else {
-      console.log('Pokemon não encontrado');
     }
   }
 }

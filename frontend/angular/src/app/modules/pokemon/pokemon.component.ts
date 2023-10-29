@@ -2,7 +2,6 @@ import Swal from "sweetalert2";
 import { Component, OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { HttpErrorResponse } from '@angular/common/http';
 
 import { PokemonService, PokemonTipoService } from '../../shared/services';
 import { PokemonTipoViewModel, PokemonViewModel } from '../../shared/domain-types';
@@ -30,11 +29,11 @@ export class PokemonComponent implements OnInit {
 
   ngOnInit(): void {
     this.getPokemons();
-    this.getFormSearch();
+    this.setupForm();
     this.getPokemonsTipos();
   }
 
-  private getFormSearch() {
+  setupForm() {
     this.formFilter = this.formBuilder.group({
       nome: [''],
       pokemontipo: [''],
@@ -42,11 +41,7 @@ export class PokemonComponent implements OnInit {
   }
 
   filter() {
-    const buscar = {
-      pokemontipoid: this.formFilter.controls['pokemontipo'].value
-    }
-
-    this.searchPokemonByType(buscar.pokemontipoid);
+    this.searchPokemonByTypeIfNeeded();
   }
 
   clearFilter() {
@@ -58,9 +53,7 @@ export class PokemonComponent implements OnInit {
   }
 
   openAddModal() {
-    const modalRef = this.modal.open(AddPokemonModalComponent, {
-      backdrop: 'static'
-    });
+    const modalRef = this.modal.open(AddPokemonModalComponent, { backdrop: 'static' });
     modalRef.componentInstance.cadastroSucessoEnviado.subscribe((success: boolean) => {
       if (success) {
         this.getPokemons();
@@ -71,16 +64,8 @@ export class PokemonComponent implements OnInit {
   openEditModal(id: number) {
     const modalRef = this.modal.open(EditPokemonModalComponent);
     modalRef.componentInstance.pokemonId = this.pokemonId = id;
-    modalRef.componentInstance.updateSucessoEnviado.subscribe((success: boolean) => {
-      if (success) {
-        this.getPokemons();
-      }
-    });
-    modalRef.componentInstance.removeSucessoEnviado.subscribe((success: boolean) => {
-      if (success) {
-        this.getPokemons();
-      }
-    });
+    modalRef.componentInstance.updateSucessoEnviado.subscribe(this.handleSuccess.bind(this));
+    modalRef.componentInstance.removeSucessoEnviado.subscribe(this.handleSuccess.bind(this));
   }
 
   removePokemon(id: number) {
@@ -118,44 +103,45 @@ export class PokemonComponent implements OnInit {
                 }
               )
             },
-            error: (err: HttpErrorResponse) => {
-              console.error(err);
-            }
           });
         }
       })
   }
 
-  searchPokemonByType(tipo: number) {
+  private handleSuccess(success: boolean) {
+    if (success) {
+      this.getPokemons();
+    }
+  }
+
+  private searchPokemonByTypeIfNeeded() {
+    const tipo = this.formFilter.controls['pokemontipo'].value;
+    if (tipo) {
+      this.searchPokemonByType(tipo);
+    }
+  }
+
+  private searchPokemonByType(tipo: number) {
     this.sercvicePokemon.getAllByPokemonType(tipo).subscribe({
       next: value => {
-        return this.pokemons = value;
-      },
-      error: err => {
-        console.log(err)
+        this.pokemons = value;
       }
     });
   }
 
-  getPokemons() {
+  private getPokemons() {
     this.sercvicePokemon.getAll().subscribe({
       next: value => {
         this.pokemons = value;
       },
-      error: err => {
-        console.log(err)
-      }
     });
   }
 
-  getPokemonsTipos() {
+  private getPokemonsTipos() {
     this.servicePokemonTipo.getAll().subscribe({
       next: value => {
         this.pokemonTipos = value;
       },
-      error: err => {
-        console.log(err)
-      }
     });
   }
 }
