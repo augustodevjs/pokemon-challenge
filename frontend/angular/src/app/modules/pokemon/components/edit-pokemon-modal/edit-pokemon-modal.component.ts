@@ -103,7 +103,6 @@ export class EditPokemonModalComponent implements OnInit {
             },
           }).then((result) => {
             if (result.isConfirmed) {
-              this.form.reset();
               this.form.controls['pokemontipo'].setValue('');
             }
           })
