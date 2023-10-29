@@ -1,18 +1,19 @@
 import { ComponentType } from "react"
 import { WithBaseInputProps } from ".."
+import * as S from './with-base-input.styles'
 
 export const withBaseInput = <T,>(Component: ComponentType<T>) => {
   return (props: T & WithBaseInputProps) => {
     return (
       <>
         {props.label && (
-          <label>
+          <S.Label>
             {props.label}
-          </label>
+          </S.Label>
         )}
         <Component {...props} />
         {props.error !== undefined && (
-          <form className="text-danger">{props.error}</form>
+          <S.Form>{props.error}</S.Form>
         )}
       </>
     )

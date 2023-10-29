@@ -42,19 +42,21 @@ export const PokemonForm: React.FC<Props> = ({ onSubmit, id }) => {
         {...register('imagemUrl')}
       />
 
-      <Controller
-        name="pokemonTipo"
-        control={control}
-        render={({ field }) => (
-          <RemoteSelect
-            apiConfig={setupPokemonApiConfig()}
-            endpoint="/pokemon-tipo"
-            label="Tipo do Pokemon"
-            error={formState.errors.pokemonTipo?.nome?.message}
-            {...field}
-          />
-        )}
-      />
+      <div>
+        <Controller
+          name="pokemonTipo"
+          control={control}
+          render={({ field }) => (
+            <RemoteSelect
+              apiConfig={setupPokemonApiConfig()}
+              endpoint="/pokemon-tipo"
+              label="Tipo do Pokemon"
+              error={formState.errors.pokemonTipo?.nome?.message}
+              {...field}
+            />
+          )}
+        />
+      </div>
     </S.Form>
   );
 };
