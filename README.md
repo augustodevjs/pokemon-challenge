@@ -1,4 +1,4 @@
-## 🖼️ FrontEnd - React & Angular
+## 🖼️ Frontend - React & Angular
 
 <div style="display: flex; flex-direction: column; gap: 1rem">
   <img src="./frontend/images/react-photo.png">
@@ -87,8 +87,14 @@
   ```
 
 - Rodando o projeto no modo de desenvolvimento (React)
+
   ```sh
   yarn run dev
+  ```
+
+- Na imagem do Pokemon você pode seguir esse formato da api do pokemon
+  ```sh
+  https://img.pokemondb.net/artwork/large/{nome-do-pokemon}.jpg
   ```
 
 ## :desktop_computer: Principais tecnologias utilizadas no Front-End
@@ -155,10 +161,9 @@ Utilizei o framework .NET 7 junto com o Entity Framework para desenvolver a apli
 
 - <a href="https://learn.microsoft.com/pt-br/dotnet/csharp/">C#</a>
 - <a href="https://xunit.net">xUnit</a>
-- <a href="https://dotnet.microsoft.com/en-us/download/dotnet/6.0">.NET 7</a>
+- <a href="https://dotnet.microsoft.com/en-us/download/dotnet/7.0">.NET 7</a>
 - <a href="">MySql</a>
 - <a href="https://dbeaver.io/download/">DBeaver</a>
 - <a href="https://automapper.org">AutoMapper</a>
-- <a href="https://fluentvalidation.net">FluentValidation</a>
 - <a href="https://fluentvalidation.net">FluentValidation</a>
 - <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript">Entity Framework</a>
