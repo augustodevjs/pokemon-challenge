@@ -80,10 +80,13 @@
   yarn
   ```
 
-- Variável de Ambiente (React)
+- Variável de Ambiente (React & Angular)
 
   ```sh
-  crie um arquivo chamado .env e copie a url da api para esse arquivo de acordo com .env.example
+  lembre-se de mudar a variável de ambiente
+
+  (Angular) - mude no arquivo environment.development
+  (React) - siga o exemplo do arquivo .env.example e crie um arquivo .env
   ```
 
 - Rodando o projeto no modo de desenvolvimento (React)
