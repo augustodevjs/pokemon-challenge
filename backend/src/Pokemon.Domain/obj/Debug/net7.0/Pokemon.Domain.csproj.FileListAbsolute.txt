@@ -10,3 +10,15 @@ C:\Users\joaoa\source\repos\undefined\backend\src\Pokemon.Domain\obj\Debug\net7.
 C:\Users\joaoa\source\repos\undefined\backend\src\Pokemon.Domain\obj\Debug\net7.0\refint\Pokemon.Domain.dll
 C:\Users\joaoa\source\repos\undefined\backend\src\Pokemon.Domain\obj\Debug\net7.0\Pokemon.Domain.pdb
 C:\Users\joaoa\source\repos\undefined\backend\src\Pokemon.Domain\obj\Debug\net7.0\ref\Pokemon.Domain.dll
+C:\Users\joaoa\source\repos\teste\undefined-challenge\backend\src\Pokemon.Domain\bin\Debug\net7.0\Pokemon.Domain.deps.json
+C:\Users\joaoa\source\repos\teste\undefined-challenge\backend\src\Pokemon.Domain\bin\Debug\net7.0\Pokemon.Domain.dll
+C:\Users\joaoa\source\repos\teste\undefined-challenge\backend\src\Pokemon.Domain\bin\Debug\net7.0\Pokemon.Domain.pdb
+C:\Users\joaoa\source\repos\teste\undefined-challenge\backend\src\Pokemon.Domain\obj\Debug\net7.0\Pokemon.Domain.csproj.AssemblyReference.cache
+C:\Users\joaoa\source\repos\teste\undefined-challenge\backend\src\Pokemon.Domain\obj\Debug\net7.0\Pokemon.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\joaoa\source\repos\teste\undefined-challenge\backend\src\Pokemon.Domain\obj\Debug\net7.0\Pokemon.Domain.AssemblyInfoInputs.cache
+C:\Users\joaoa\source\repos\teste\undefined-challenge\backend\src\Pokemon.Domain\obj\Debug\net7.0\Pokemon.Domain.AssemblyInfo.cs
+C:\Users\joaoa\source\repos\teste\undefined-challenge\backend\src\Pokemon.Domain\obj\Debug\net7.0\Pokemon.Domain.csproj.CoreCompileInputs.cache
+C:\Users\joaoa\source\repos\teste\undefined-challenge\backend\src\Pokemon.Domain\obj\Debug\net7.0\Pokemon.Domain.dll
+C:\Users\joaoa\source\repos\teste\undefined-challenge\backend\src\Pokemon.Domain\obj\Debug\net7.0\refint\Pokemon.Domain.dll
+C:\Users\joaoa\source\repos\teste\undefined-challenge\backend\src\Pokemon.Domain\obj\Debug\net7.0\Pokemon.Domain.pdb
+C:\Users\joaoa\source\repos\teste\undefined-challenge\backend\src\Pokemon.Domain\obj\Debug\net7.0\ref\Pokemon.Domain.dll

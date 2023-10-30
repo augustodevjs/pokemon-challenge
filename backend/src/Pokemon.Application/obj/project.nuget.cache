@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "OekH8pvgk8S2omyQmSUeJn1OCaITj0yQkLYVuHaV3U/UIA7kcdDUypuhrEWJIowPuuwq+Gdc67fLNGqND3JX8A==",
+  "dgSpecHash": "ahKEGH0vubpVGLy9GVEsTQOBswHkHiiSC9CTcUIOL56YS4pMv9DQlAOl0SZ9k6bzzi5Uzl/97DmZsMZCGIO+qQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\joaoa\\source\\repos\\undefined\\backend\\src\\Pokemon.Application\\Pokemon.Application.csproj",
+  "projectFilePath": "C:\\Users\\joaoa\\source\\repos\\teste\\undefined-challenge\\backend\\src\\Pokemon.Application\\Pokemon.Application.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\joaoa\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
     "C:\\Users\\joaoa\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.1\\automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",

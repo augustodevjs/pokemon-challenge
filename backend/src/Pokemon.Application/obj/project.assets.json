@@ -935,11 +935,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\joaoa\\source\\repos\\undefined\\backend\\src\\Pokemon.Application\\Pokemon.Application.csproj",
+      "projectUniqueName": "C:\\Users\\joaoa\\source\\repos\\teste\\undefined-challenge\\backend\\src\\Pokemon.Application\\Pokemon.Application.csproj",
       "projectName": "Pokemon.Application",
-      "projectPath": "C:\\Users\\joaoa\\source\\repos\\undefined\\backend\\src\\Pokemon.Application\\Pokemon.Application.csproj",
+      "projectPath": "C:\\Users\\joaoa\\source\\repos\\teste\\undefined-challenge\\backend\\src\\Pokemon.Application\\Pokemon.Application.csproj",
       "packagesPath": "C:\\Users\\joaoa\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\joaoa\\source\\repos\\undefined\\backend\\src\\Pokemon.Application\\obj\\",
+      "outputPath": "C:\\Users\\joaoa\\source\\repos\\teste\\undefined-challenge\\backend\\src\\Pokemon.Application\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\joaoa\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -956,11 +956,11 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
-            "C:\\Users\\joaoa\\source\\repos\\undefined\\backend\\src\\Pokemon.Core\\Pokemon.Core.csproj": {
-              "projectPath": "C:\\Users\\joaoa\\source\\repos\\undefined\\backend\\src\\Pokemon.Core\\Pokemon.Core.csproj"
+            "C:\\Users\\joaoa\\source\\repos\\teste\\undefined-challenge\\backend\\src\\Pokemon.Core\\Pokemon.Core.csproj": {
+              "projectPath": "C:\\Users\\joaoa\\source\\repos\\teste\\undefined-challenge\\backend\\src\\Pokemon.Core\\Pokemon.Core.csproj"
             },
-            "C:\\Users\\joaoa\\source\\repos\\undefined\\backend\\src\\Pokemon.Infraestructure\\Pokemon.Infraestructure.csproj": {
-              "projectPath": "C:\\Users\\joaoa\\source\\repos\\undefined\\backend\\src\\Pokemon.Infraestructure\\Pokemon.Infraestructure.csproj"
+            "C:\\Users\\joaoa\\source\\repos\\teste\\undefined-challenge\\backend\\src\\Pokemon.Infraestructure\\Pokemon.Infraestructure.csproj": {
+              "projectPath": "C:\\Users\\joaoa\\source\\repos\\teste\\undefined-challenge\\backend\\src\\Pokemon.Infraestructure\\Pokemon.Infraestructure.csproj"
             }
           }
         }

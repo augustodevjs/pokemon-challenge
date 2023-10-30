@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\joaoa\\source\\repos\\undefined\\backend\\src\\Pokemon.Core\\Pokemon.Core.csproj": {}
+    "C:\\Users\\joaoa\\source\\repos\\teste\\undefined-challenge\\backend\\src\\Pokemon.Core\\Pokemon.Core.csproj": {}
   },
   "projects": {
-    "C:\\Users\\joaoa\\source\\repos\\undefined\\backend\\src\\Pokemon.Core\\Pokemon.Core.csproj": {
+    "C:\\Users\\joaoa\\source\\repos\\teste\\undefined-challenge\\backend\\src\\Pokemon.Core\\Pokemon.Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\joaoa\\source\\repos\\undefined\\backend\\src\\Pokemon.Core\\Pokemon.Core.csproj",
+        "projectUniqueName": "C:\\Users\\joaoa\\source\\repos\\teste\\undefined-challenge\\backend\\src\\Pokemon.Core\\Pokemon.Core.csproj",
         "projectName": "Pokemon.Core",
-        "projectPath": "C:\\Users\\joaoa\\source\\repos\\undefined\\backend\\src\\Pokemon.Core\\Pokemon.Core.csproj",
+        "projectPath": "C:\\Users\\joaoa\\source\\repos\\teste\\undefined-challenge\\backend\\src\\Pokemon.Core\\Pokemon.Core.csproj",
         "packagesPath": "C:\\Users\\joaoa\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\joaoa\\source\\repos\\undefined\\backend\\src\\Pokemon.Core\\obj\\",
+        "outputPath": "C:\\Users\\joaoa\\source\\repos\\teste\\undefined-challenge\\backend\\src\\Pokemon.Core\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\joaoa\\AppData\\Roaming\\NuGet\\NuGet.Config",

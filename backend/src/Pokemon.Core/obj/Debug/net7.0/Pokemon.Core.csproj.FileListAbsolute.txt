@@ -9,3 +9,14 @@ C:\Users\joaoa\source\repos\undefined\backend\src\Pokemon.Core\obj\Debug\net7.0\
 C:\Users\joaoa\source\repos\undefined\backend\src\Pokemon.Core\obj\Debug\net7.0\refint\Pokemon.Core.dll
 C:\Users\joaoa\source\repos\undefined\backend\src\Pokemon.Core\obj\Debug\net7.0\Pokemon.Core.pdb
 C:\Users\joaoa\source\repos\undefined\backend\src\Pokemon.Core\obj\Debug\net7.0\ref\Pokemon.Core.dll
+C:\Users\joaoa\source\repos\teste\undefined-challenge\backend\src\Pokemon.Core\bin\Debug\net7.0\Pokemon.Core.deps.json
+C:\Users\joaoa\source\repos\teste\undefined-challenge\backend\src\Pokemon.Core\bin\Debug\net7.0\Pokemon.Core.dll
+C:\Users\joaoa\source\repos\teste\undefined-challenge\backend\src\Pokemon.Core\bin\Debug\net7.0\Pokemon.Core.pdb
+C:\Users\joaoa\source\repos\teste\undefined-challenge\backend\src\Pokemon.Core\obj\Debug\net7.0\Pokemon.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\joaoa\source\repos\teste\undefined-challenge\backend\src\Pokemon.Core\obj\Debug\net7.0\Pokemon.Core.AssemblyInfoInputs.cache
+C:\Users\joaoa\source\repos\teste\undefined-challenge\backend\src\Pokemon.Core\obj\Debug\net7.0\Pokemon.Core.AssemblyInfo.cs
+C:\Users\joaoa\source\repos\teste\undefined-challenge\backend\src\Pokemon.Core\obj\Debug\net7.0\Pokemon.Core.csproj.CoreCompileInputs.cache
+C:\Users\joaoa\source\repos\teste\undefined-challenge\backend\src\Pokemon.Core\obj\Debug\net7.0\Pokemon.Core.dll
+C:\Users\joaoa\source\repos\teste\undefined-challenge\backend\src\Pokemon.Core\obj\Debug\net7.0\refint\Pokemon.Core.dll
+C:\Users\joaoa\source\repos\teste\undefined-challenge\backend\src\Pokemon.Core\obj\Debug\net7.0\Pokemon.Core.pdb
+C:\Users\joaoa\source\repos\teste\undefined-challenge\backend\src\Pokemon.Core\obj\Debug\net7.0\ref\Pokemon.Core.dll

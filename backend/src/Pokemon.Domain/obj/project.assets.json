@@ -113,11 +113,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\joaoa\\source\\repos\\undefined\\backend\\src\\Pokemon.Domain\\Pokemon.Domain.csproj",
+      "projectUniqueName": "C:\\Users\\joaoa\\source\\repos\\teste\\undefined-challenge\\backend\\src\\Pokemon.Domain\\Pokemon.Domain.csproj",
       "projectName": "Pokemon.Domain",
-      "projectPath": "C:\\Users\\joaoa\\source\\repos\\undefined\\backend\\src\\Pokemon.Domain\\Pokemon.Domain.csproj",
+      "projectPath": "C:\\Users\\joaoa\\source\\repos\\teste\\undefined-challenge\\backend\\src\\Pokemon.Domain\\Pokemon.Domain.csproj",
       "packagesPath": "C:\\Users\\joaoa\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\joaoa\\source\\repos\\undefined\\backend\\src\\Pokemon.Domain\\obj\\",
+      "outputPath": "C:\\Users\\joaoa\\source\\repos\\teste\\undefined-challenge\\backend\\src\\Pokemon.Domain\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\joaoa\\AppData\\Roaming\\NuGet\\NuGet.Config",

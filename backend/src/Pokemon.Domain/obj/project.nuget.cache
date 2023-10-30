@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "8T3R69fu6lcmmg+7YbaU0OIdgrm/Zn9Dl3bWH9qhW4xmukywrbIcanDu0K7cfZl/yimbZ3nxOnH1Vt/UpFgI5Q==",
+  "dgSpecHash": "uRpOn11uKTnhxkFqj6F8YmX/gbNXPBOHrBIDd+ELEeZo6pJoAR0HuUfQigbWIghBdlqWxZ1Q48jHFIf29ei3Ww==",
   "success": true,
-  "projectFilePath": "C:\\Users\\joaoa\\source\\repos\\undefined\\backend\\src\\Pokemon.Domain\\Pokemon.Domain.csproj",
+  "projectFilePath": "C:\\Users\\joaoa\\source\\repos\\teste\\undefined-challenge\\backend\\src\\Pokemon.Domain\\Pokemon.Domain.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\joaoa\\.nuget\\packages\\fluentvalidation\\11.7.1\\fluentvalidation.11.7.1.nupkg.sha512",
     "C:\\Users\\joaoa\\.nuget\\packages\\fluentvalidation.dependencyinjectionextensions\\11.7.1\\fluentvalidation.dependencyinjectionextensions.11.7.1.nupkg.sha512",
