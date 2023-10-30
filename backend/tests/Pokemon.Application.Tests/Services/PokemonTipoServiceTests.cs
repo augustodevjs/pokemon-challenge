@@ -8,15 +8,14 @@ namespace Pokemon.Application.Tests.Services;
 public class PokemonTipoServiceTests : BaseServiceTest, IClassFixture<ServicesFixtures>
 {
     private readonly PokemonTipoService _pokemonTipoService;
-    private readonly Mock<IPokemonTipoRepository> _pokemonTipoRepositoryMock;
 
     public PokemonTipoServiceTests(ServicesFixtures servicesFixtures)
     {
-        _pokemonTipoRepositoryMock = new Mock<IPokemonTipoRepository>();
+        Mock<IPokemonTipoRepository> pokemonTipoRepositoryMock = new();
         _pokemonTipoService = new PokemonTipoService(
             servicesFixtures.Mapper,
             NotificatorMock.Object,
-            _pokemonTipoRepositoryMock.Object
+            pokemonTipoRepositoryMock.Object
         );
     }
 
